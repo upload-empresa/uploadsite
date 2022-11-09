@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Flex, HStack, IconButton, Stack } from '@chakra-ui/react'
 import { useState } from 'react'
 import { MdMenu, MdOutlineClose } from "react-icons/md"
@@ -44,7 +45,7 @@ export function Navbar() {
                 display={{ base: "flex", md: "flex", lg: "none", xl: "none" }}
                 onClick={() => changeDisplay('flex')}
             />
-            <Flex as="section" display={{base:'none', lg:"flex", xl:"flex"}}/>
+            <Flex as="section" display={{ base: 'none', lg: "flex", xl: "flex" }} />
             <Stack
                 w="100vw"
                 h="100vh"

@@ -9,18 +9,35 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/core": "0.8.0",
-    "@chakra-ui/react": "2.2.1",
-    "@sendgrid/mail": "^7.7.0",
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.8",
-    "eslint": "8.27.0",
-    "eslint-config-next": "13.0.2",
-    "next": "13.0.2",
+    "@chakra-ui/core": "^0.8.0",
+    "@chakra-ui/react": "^2.2.1",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@material-ui/core": "^4.12.4",
+    "@sendgrid/mail": "7.4.6",
+    "@types/js-cookie": "^3.0.2",
+    "axios": "0.21.1",
+    "bcryptjs": "2.4.3",
+    "framer-motion": "^6.3.16",
+    "js-cookie": "^3.0.1",
+    "jsonwebtoken": "8.5.1",
+    "mongoose": "5.13.2",
+    "next": "12.2.0",
+    "next-auth": "3.27.0",
+    "next-connect": "0.10.1",
+    "notistack": "1.0.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sitemap": "7.1.1",
-    "typescript": "4.8.4"
+    "react-hook-form": "7.11.0",
+    "react-icons": "^4.4.0",
+    "sharp": "^0.31.1",
+    "sitemap": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.16",
+    "@types/react": "^18.0.18",
+    "eslint": "8.19.0",
+    "eslint-config-next": "12.2.0",
+    "typescript": "^4.8.3"
   }
 }

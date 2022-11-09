@@ -1,8 +1,8 @@
 // pages/api/mail.ts
-
+/* eslint-disable */
 const sgMail = require('@sendgrid/mail');
 
-export default async function Send(req, res) {
+export default async function Send(req: { body: { email: any; cargo: any; name: any; opcao: any; telephone: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; send: { (arg0: string): void; new(): any; }; }; }) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
   const { email, cargo, name, opcao, telephone } = req.body;

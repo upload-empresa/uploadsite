@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import {
@@ -24,7 +25,7 @@ export default function HookForm() {
     formState: { errors, isSubmitting },
   } = useForm()
 
-  const handleResponse = (status) => {
+  const handleResponse = (status: number) => {
     if (status === 200) {
       reset()
       setStatus("Enviada")
@@ -35,7 +36,7 @@ export default function HookForm() {
     }
   }
 
-  const handleOnSubmit = async (values) => {
+  const handleOnSubmit = async (values: any) => {
     const res = await fetch('/api/send', {
       method: 'POST',
       headers: {
