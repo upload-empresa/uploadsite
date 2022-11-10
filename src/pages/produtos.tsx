@@ -3,10 +3,12 @@ import { Footer } from "../components/Footer"
 import { Navbar } from "../components/Navbar"
 import Image from 'next/image'
 import NextLink from 'next/link'
+import { Header } from "../components/SEO/head"
 
 export default function Produtos() {
     return (
         <>
+        <Header title={"Produtos da Upload"} description={"Conheça os produtos que irão inovar sua empresa"} />
             <Navbar />
             <Stack
                 flexDir="row"
@@ -54,7 +56,7 @@ export default function Produtos() {
                                 spacing={6}
 
                             >
-                                <NextLink href={"https://wa.me/5532984223528"}>
+                                <NextLink href={"https://wa.me/5532984223528"} passHref target="_blank">
                                     <Link
                                         bg="#2FACFA"
                                         color="white"
@@ -129,16 +131,18 @@ export default function Produtos() {
                                 Precisando aumentar a visibilidade do seu negócio?
                                 O site é o produto certo para você!
                             </Text>
-                            <Button
-                                colorScheme="blackAlpha"
-                                fontSize="20px"
-                                color="white"
-                                w={{ base: "65%", lg: "23%" }}
-                                py={6}
-                                borderRadius="full"
-                            >
-                                Peça Agora
-                            </Button>
+                            <NextLink href={"https://wa.me/5532984223528"} passHref target="_blank">
+                                <Button
+                                    colorScheme="blackAlpha"
+                                    fontSize="20px"
+                                    color="white"
+                                    w={{ base: "65%", lg: "23%" }}
+                                    py={6}
+                                    borderRadius="full"
+                                >
+                                    Peça Agora
+                                </Button>
+                            </NextLink>
                         </Stack>
                     </Stack>
                 </HStack>
@@ -187,16 +191,18 @@ export default function Produtos() {
                                 maxW={{base:"100%", lg:"55%", xl:"55%"}}
                             >
                                 Se você tem um ou mais produtos e precisa ampliar suas vendas, peça agora uma loja virtual.                             </Text>
-                            <Button
-                                colorScheme="blackAlpha"
-                                fontSize="20px"
-                                color="white"
-                                w={{ base: "65%", lg: "23%" }}
-                                py={6}
-                                borderRadius="full"
-                            >
-                                Peça Agora
-                            </Button>
+                            <NextLink href={"https://wa.me/5532984223528"} passHref target="_blank">
+                                <Button
+                                    colorScheme="blackAlpha"
+                                    fontSize="20px"
+                                    color="white"
+                                    w={{ base: "65%", lg: "23%" }}
+                                    py={6}
+                                    borderRadius="full"
+                                >
+                                    Peça Agora
+                                </Button>
+                            </NextLink>
                         </Stack>
                     </Stack>
                 </HStack>
@@ -244,16 +250,18 @@ export default function Produtos() {
                             >
                                 Organização, praticidade, armazenamento de dados em um só lugar? Venha conversar com a gente e fazer o sistema da sua empresa.
                             </Text>
-                            <Button
-                                colorScheme="blackAlpha"
-                                fontSize="20px"
-                                color="white"
-                                w={{ base: "65%", lg: "23%" }}
-                                py={6}
-                                borderRadius="full"
-                            >
-                                Peça Agora
-                            </Button>
+                            <NextLink href={"https://wa.me/5532984223528"} passHref target="_blank">
+                                <Button
+                                    colorScheme="blackAlpha"
+                                    fontSize="20px"
+                                    color="white"
+                                    w={{ base: "65%", lg: "23%" }}
+                                    py={6}
+                                    borderRadius="full"
+                                >
+                                    Peça Agora
+                                </Button>
+                            </NextLink>
                         </Stack>
                     </Stack>
                 </HStack>

@@ -25,7 +25,11 @@ export function Navigation({ link, name }: NavigationProps) {
                         textDecoration: "none",
                     }}
                 >
-                    {name}
+                    <Text
+                        as="li"
+                    >
+                        {name}
+                    </Text>
                 </Link>
             </NextLink>
         </Text>

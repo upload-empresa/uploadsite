@@ -2,17 +2,20 @@ import { Button, Flex, Heading, HStack, Stack, Text } from "@chakra-ui/react"
 import { Cards } from "../components/Card"
 import { Footer } from "../components/Footer"
 import Image from 'next/image'
+import NextLink from 'next/link'
 
 import { Navbar } from "../components/Navbar"
 
 import HookForm from "../components/contactForm/Form"
 
 import { NextPage } from "next"
+import { Header } from "../components/SEO/head"
 
 
 const Home: NextPage = () => {
   return (
     <>
+      <Header title={"Upload"} description={"Perfeito para você que busca inovação digital para o seu negócio"} />
       <Navbar />
       <Stack
         as="main"
@@ -107,22 +110,24 @@ const Home: NextPage = () => {
               >
                 Sua empresa sempre um passo à frente
               </Heading>
-              <Button
-                w="65%"
-                fontSize={{ base: "28px", lg: "32px", xl: "32px" }}
-                fontWeight="500"
-                background='#2facfa57'
-                py={8}
-                transition="ease-in 0.2s all"
-                transitionDelay="50ms"
-                px={4}
-                borderRadius="full"
-                _hover={{
-                  bg: "#2facfa"
-                }}
-              >
-                Embarcar
-              </Button>
+              <NextLink href={"/produtos"} passHref>
+                <Button
+                  w="65%"
+                  fontSize={{ base: "28px", lg: "32px", xl: "32px" }}
+                  fontWeight="500"
+                  background='#2facfa57'
+                  py={8}
+                  transition="ease-in 0.2s all"
+                  transitionDelay="50ms"
+                  px={4}
+                  borderRadius="full"
+                  _hover={{
+                    bg: "#2facfa"
+                  }}
+                >
+                  Embarcar
+                </Button>
+              </NextLink>
               <Stack>
                 <Image src="/images/tablet.png" width="200%" height="250%" alt="Site em um Tablet" />
               </Stack>
@@ -169,24 +174,26 @@ const Home: NextPage = () => {
           <Stack
             align="center"
           >
-            <Button
-              w="120%"
-              fontSize="32px"
-              fontWeight="500"
-              py={8}
-              px={4}
-              background='#ffffff4d'
-              color="#82735c"
-              borderRadius="full"
-              transition="ease-in 0.2s all"
-              transitionDelay="50ms"
-              _hover={{
-                bg: "#2facfa",
-                color: "black"
-              }}
-            >
-              Descubra
-            </Button>
+            <NextLink href={"/produtos"} passHref>
+              <Button
+                w="120%"
+                fontSize="32px"
+                fontWeight="500"
+                py={8}
+                px={4}
+                background='#ffffff4d'
+                color="#82735c"
+                borderRadius="full"
+                transition="ease-in 0.2s all"
+                transitionDelay="50ms"
+                _hover={{
+                  bg: "#2facfa",
+                  color: "black"
+                }}
+              >
+                Descubra
+              </Button>
+            </NextLink>
           </Stack>
         </Stack>
         <HStack
