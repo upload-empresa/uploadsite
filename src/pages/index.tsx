@@ -210,7 +210,7 @@ const Home: NextPage = () => {
             <Text
               as="p"
               fontSize={{ base: "20px", lg: "24px", xl: "24px" }}
-              color="#82735c"
+              color="#5C5142"
             >
               A história da Upload começa junto com a necessidade das empresas de se atualizarem no novo mercado de trabalho. Nossos produtos são feitos sempre pensando no melhor desempenho do consumidor, portanto utilizamos as estratégias e tecnologias mais atualizadas do mercado, como Design UI/UX e SEO.
             </Text>
