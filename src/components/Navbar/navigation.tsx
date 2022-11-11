@@ -18,20 +18,21 @@ export function Navigation({ link, name }: NavigationProps) {
             }}
 
         >
-            <NextLink href={link} passHref>
-                <Link
-                    as="a"
-                    _hover={{
-                        textDecoration: "none",
-                    }}
-                >
-                    <Text
-                        as="li"
+            <Text
+                as="li"
+                listStyleType={"none"}
+            >
+                <NextLink href={link} passHref>
+                    <Link
+                        as="a"
+                        _hover={{
+                            textDecoration: "none",
+                        }}
                     >
                         {name}
-                    </Text>
-                </Link>
-            </NextLink>
+                    </Link>
+                </NextLink>
+            </Text>
         </Text>
 
     )
