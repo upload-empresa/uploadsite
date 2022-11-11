@@ -129,7 +129,7 @@ const Home: NextPage = () => {
                 </Button>
               </NextLink>
               <Stack>
-                <Image src="/images/tablet.png" width="200%" height="250%" alt="Site em um Tablet" />
+                <Image src="/images/tablet.png" width="256px" height="351px" alt="Site em um Tablet" />
               </Stack>
             </Stack>
 
@@ -157,18 +157,18 @@ const Home: NextPage = () => {
             align={{ base: "center", md: "stretch", lg: "strech", xl: "stretch" }}
             flexDir={{ base: "column", lg: "row", xl: "row" }}
           >
-            <Cards urlimage="/images/siteexemplo.png" tamw="200%" tamh="120%" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
-            <Cards urlimage="/images/sistema.png" tamw="150%" tamh="150%" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
-            <Cards urlimage="/images/loja.png" tamw="170%" tamh="150%" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
+            <Cards urlimage="/images/siteexemplo.png" tamw="256px" tamh="149px" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
+            <Cards urlimage="/images/sistema.png" tamw="256px" tamh="293px" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
+            <Cards urlimage="/images/loja.png" tamw="256px" tamh="204px" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
           </HStack>
           <Stack
             display={{ base: 'flex', lg: 'none', xl: "none" }}
             spacing={{ base: 6 }}
 
           >
-            <Cards urlimage="/images/siteexemplo.png" tamw="200%" tamh="120%" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
-            <Cards urlimage="/images/sistema.png" tamw="150%" tamh="150%" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
-            <Cards urlimage="/images/loja.png" tamw="170%" tamh="150%" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
+            <Cards urlimage="/images/siteexemplo.png" tamw="256px" tamh="149px" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
+            <Cards urlimage="/images/sistema.png" tamw="256px" tamh="293px" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
+            <Cards urlimage="/images/loja.png" tamw="256px" tamh="204px" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
 
           </Stack>
           <Stack
