@@ -76,7 +76,7 @@ const Home: NextPage = () => {
                 Embarcar
               </Button>
             </Stack>
-            <Image src="/images/tablet.png" width="200%" height="250%" alt="Site em um Tablet" />
+            <Image src="/images/tablet.png" width="256px" height="351px" alt="Site em um Tablet" />
           </HStack>
           <Stack
             display={{ base: 'flex', lg: 'none', xl: "none" }}
