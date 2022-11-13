@@ -58,7 +58,9 @@ export default function Produtos() {
                             >
                                 <NextLink href={"https://wa.me/5532984223528"} passHref target="_blank">
                                     <Link
+                                        as="a"
                                         bg="#2FACFA"
+                                        target="_blank"
                                         color="white"
                                         borderRadius="32px"
                                         px={6}

@@ -8,12 +8,11 @@ import { Navbar } from "../components/Navbar"
 
 import HookForm from "../components/contactForm/Form"
 
-import { NextPage } from "next"
 import { Header } from "../components/SEO/head"
+import { Buttons } from "../components/SEO/buttons"
 
-
-const Home: NextPage = () => {
-  return (
+export default function Home() {
+  return(
     <>
       <Header title={"Upload"} description={"Perfeito para você que busca inovação digital para o seu negócio"} />
       <Navbar />
@@ -59,22 +58,7 @@ const Home: NextPage = () => {
               >
                 Sua empresa sempre um passo à frente
               </Heading>
-              <Button
-                w="65%"
-                fontSize={{ base: "28px", lg: "32px", xl: "32px" }}
-                fontWeight="500"
-                background='#2facfa57'
-                py={8}
-                transition="ease-in 0.2s all"
-                transitionDelay="50ms"
-                px={4}
-                borderRadius="full"
-                _hover={{
-                  bg: "#2facfa"
-                }}
-              >
-                Embarcar
-              </Button>
+              <Buttons text={"Embarcar"} tam={"65%"} bgcolor={'#2facfa57'} bgcolorhover={"#2facfa"} rota={"/produtos"}/>
             </Stack>
             <Image src="/images/tablet.png" width="256px" height="351px" alt="Site em um Tablet" />
           </HStack>
@@ -110,24 +94,7 @@ const Home: NextPage = () => {
               >
                 Sua empresa sempre um passo à frente
               </Heading>
-              <NextLink href={"/produtos"} passHref>
-                <Button
-                  w="65%"
-                  fontSize={{ base: "28px", lg: "32px", xl: "32px" }}
-                  fontWeight="500"
-                  background='#2facfa57'
-                  py={8}
-                  transition="ease-in 0.2s all"
-                  transitionDelay="50ms"
-                  px={4}
-                  borderRadius="full"
-                  _hover={{
-                    bg: "#2facfa"
-                  }}
-                >
-                  Embarcar
-                </Button>
-              </NextLink>
+              <Buttons text={"Embarcar"} tam={"65%"} bgcolor={'#2facfa57'} bgcolorhover={"#2facfa"} rota={"/produtos"}/>
               <Stack>
                 <Image src="/images/tablet.png" width="256px" height="351px" alt="Site em um Tablet" />
               </Stack>
@@ -174,26 +141,7 @@ const Home: NextPage = () => {
           <Stack
             align="center"
           >
-            <NextLink href={"/produtos"} passHref>
-              <Button
-                w="120%"
-                fontSize="32px"
-                fontWeight="500"
-                py={8}
-                px={4}
-                background='#ffffff4d'
-                color="#82735c"
-                borderRadius="full"
-                transition="ease-in 0.2s all"
-                transitionDelay="50ms"
-                _hover={{
-                  bg: "#2facfa",
-                  color: "black"
-                }}
-              >
-                Descubra
-              </Button>
-            </NextLink>
+            <Buttons text={"Descubra"} tam={"120%"} color={"#82735c"} colorhover={"black"} bgcolor={"#ffffff4d"} bgcolorhover={"#2facfa"} rota={"/produtos"} />
           </Stack>
         </Stack>
         <HStack
@@ -237,5 +185,3 @@ const Home: NextPage = () => {
 
   )
 }
-
-export default Home
