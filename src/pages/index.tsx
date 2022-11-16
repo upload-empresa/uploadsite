@@ -1,21 +1,31 @@
-import { Button, Flex, Heading, HStack, Stack, Text } from "@chakra-ui/react"
-import { Cards } from "../components/Card"
-import { Footer } from "../components/Footer"
+import { Flex, Heading, HStack, Stack, Text } from "@chakra-ui/react"
 import Image from 'next/image'
-import NextLink from 'next/link'
+import dynamic from "next/dynamic"
 
-import { Navbar } from "../components/Navbar"
-
-import HookForm from "../components/contactForm/Form"
-
-import { Header } from "../components/SEO/head"
-import { Buttons } from "../components/SEO/buttons"
 
 export default function Home() {
+
+  const HookFormDynamic = dynamic(() => import("../components/contactForm/Form").then(module => module.default))
+
+  const NavbarDynamic = dynamic(() => import("../components/Navbar").then(module => module.Navbar))
+
+  const FooterDynamic = dynamic(() => import("../components/Footer").then(module => module.Footer))
+
+  const ButtonsDynamic = dynamic(() => import("../components/SEO/buttons").then(module => module.Buttons))
+
+  const HeaderDynamic = dynamic(() => import("../components/SEO/head").then(module => module.Header))
+
+  const CardsDynamic = dynamic(() => import("../components/Card").then(module => module.Cards))
+
+
+
+
+
+
   return(
     <>
-      <Header title={"Upload"} description={"Perfeito para você que busca inovação digital para o seu negócio"} />
-      <Navbar />
+      <HeaderDynamic title={"Upload"} description={"Perfeito para você que busca inovação digital para o seu negócio"} />
+      <NavbarDynamic />
       <Stack
         as="main"
       >
@@ -58,7 +68,7 @@ export default function Home() {
               >
                 Sua empresa sempre um passo à frente
               </Heading>
-              <Buttons text={"Embarcar"} tam={"65%"} bgcolor={'#2facfa57'} bgcolorhover={"#2facfa"} rota={"/produtos"}/>
+              <ButtonsDynamic text={"Embarcar"} tam={"65%"} bgcolor={'#2facfa57'} bgcolorhover={"#2facfa"} rota={"/produtos"}/>
             </Stack>
             <Image src="/images/tablet.png" width="256px" height="351px" alt="Site em um Tablet" />
           </HStack>
@@ -94,7 +104,7 @@ export default function Home() {
               >
                 Sua empresa sempre um passo à frente
               </Heading>
-              <Buttons text={"Embarcar"} tam={"65%"} bgcolor={'#2facfa57'} bgcolorhover={"#2facfa"} rota={"/produtos"}/>
+              <ButtonsDynamic text={"Embarcar"} tam={"65%"} bgcolor={'#2facfa57'} bgcolorhover={"#2facfa"} rota={"/produtos"}/>
               <Stack>
                 <Image src="/images/tablet.png" width="256px" height="351px" alt="Site em um Tablet" />
               </Stack>
@@ -124,24 +134,24 @@ export default function Home() {
             align={{ base: "center", md: "stretch", lg: "strech", xl: "stretch" }}
             flexDir={{ base: "column", lg: "row", xl: "row" }}
           >
-            <Cards urlimage="/images/siteexemplo.png" tamw="256px" tamh="149px" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
-            <Cards urlimage="/images/sistema.png" tamw="256px" tamh="293px" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
-            <Cards urlimage="/images/loja.png" tamw="256px" tamh="204px" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
+            <CardsDynamic urlimage="/images/siteexemplo.png" tamw="256px" tamh="149px" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
+            <CardsDynamic urlimage="/images/sistema.png" tamw="256px" tamh="293px" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
+            <CardsDynamic urlimage="/images/loja.png" tamw="256px" tamh="204px" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
           </HStack>
           <Stack
             display={{ base: 'flex', lg: 'none', xl: "none" }}
             spacing={{ base: 6 }}
 
           >
-            <Cards urlimage="/images/siteexemplo.png" tamw="256px" tamh="149px" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
-            <Cards urlimage="/images/sistema.png" tamw="256px" tamh="293px" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
-            <Cards urlimage="/images/loja.png" tamw="256px" tamh="204px" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
+            <CardsDynamic urlimage="/images/siteexemplo.png" tamw="256px" tamh="149px" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
+            <CardsDynamic urlimage="/images/sistema.png" tamw="256px" tamh="293px" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
+            <CardsDynamic urlimage="/images/loja.png" tamw="256px" tamh="204px" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
 
           </Stack>
           <Stack
             align="center"
           >
-            <Buttons text={"Descubra"} tam={"120%"} color={"#82735c"} colorhover={"black"} bgcolor={"#ffffff4d"} bgcolorhover={"#2facfa"} rota={"/produtos"} />
+            <ButtonsDynamic text={"Descubra"} tam={"120%"} color={"#82735c"} colorhover={"black"} bgcolor={"#ffffff4d"} bgcolorhover={"#2facfa"} rota={"/produtos"} />
           </Stack>
         </Stack>
         <HStack
@@ -178,9 +188,9 @@ export default function Home() {
           </Stack>
         </HStack>
 
-        <HookForm />
+        <HookFormDynamic />
       </Stack>
-      <Footer />
+      <FooterDynamic />
     </>
 
   )

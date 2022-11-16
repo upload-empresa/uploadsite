@@ -1,15 +1,21 @@
 import { Heading, HStack, Stack, Text, Button, Link } from "@chakra-ui/react"
-import { Footer } from "../components/Footer"
-import { Navbar } from "../components/Navbar"
 import Image from 'next/image'
 import NextLink from 'next/link'
-import { Header } from "../components/SEO/head"
+import dynamic from "next/dynamic"
 
 export default function Produtos() {
+
+    const NavbarDynamic = dynamic(() => import("../components/Navbar").then(module => module.Navbar))
+
+    const FooterDynamic = dynamic(() => import("../components/Footer").then(module => module.Footer))
+
+    const HeaderDynamic = dynamic(() => import("../components/SEO/head").then(module => module.Header))
+
+  
     return (
         <>
-        <Header title={"Produtos da Upload"} description={"Conheça os produtos que irão inovar sua empresa"} />
-            <Navbar />
+        <HeaderDynamic title={"Produtos da Upload"} description={"Conheça os produtos que irão inovar sua empresa"} />
+            <NavbarDynamic />
             <Stack
                 flexDir="row"
             >
@@ -77,7 +83,7 @@ export default function Produtos() {
                                 </NextLink>
                             </Stack>
                         </Stack>
-                        <Image src="/images/produto.jpeg" width="618px" height="620px" />
+                        <Image src="/images/produto.jpeg" alt="Produto Upload" width="618px" height="620px" />
                     </HStack>
                 </Stack>
             </Stack>
@@ -270,7 +276,7 @@ export default function Produtos() {
 
 
             </Stack >
-            <Footer />
+            <FooterDynamic />
         </>
     )
 }
