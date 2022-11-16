@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <HeaderDynamic title={"Upload"} description={"Perfeito para você que busca inovação digital para o seu negócio"} />
+      <HeaderDynamic title={"Upload"} description={"A Upload é uma empresa de software especializada em produtos web personalizados, como sites, landing pages, sistemas de gestão e lojas virtuais."} />
       <NavbarDynamic />
       <Stack
         as="main"

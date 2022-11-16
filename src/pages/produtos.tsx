@@ -14,7 +14,7 @@ export default function Produtos() {
   
     return (
         <>
-        <HeaderDynamic title={"Produtos da Upload"} description={"Conheça os produtos que irão inovar sua empresa"} />
+        <HeaderDynamic title={"Produtos da Upload"} description={"Aqui você encontra todos os produtos necessários para levar sua empresa para outro nível. Entre e conheça nossos produtos e como eles irão ajudar sua empresa."} />
             <NavbarDynamic />
             <Stack
                 flexDir="row"
