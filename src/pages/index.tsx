@@ -24,7 +24,7 @@ export default function Home() {
 
   const HomeSectionSobreDynamic = dynamic(() => import("../components/Dynamic/home").then(module => module.HomeSectionSobre))
 
-  return(
+  return (
     <>
       <HeaderDynamic title={"Upload"} description={"Perfeito para você que busca inovação digital para o seu negócio"} />
       <NavbarDynamic />
@@ -56,11 +56,7 @@ export default function Home() {
           </Text>
           <HomeSectionCardHDynamic />
           <HomeSectionCardVDynamic />
-          <Stack
-            align="center"
-          >
-            <ButtonsDynamic text={"Descubra"} tam={"120%"} color={"#82735c"} colorhover={"black"} bgcolor={"#ffffff4d"} bgcolorhover={"#2facfa"} rota={"/produtos"} />
-          </Stack>
+          <ButtonsDynamic text={"Descubra"} tam={"20%"} color={"#82735c"} colorhover={"black"} bgcolor={"#ffffff4d"} bgcolorhover={"#2facfa"} rota={"/produtos"} />
         </Stack>
         <HomeSectionSobreDynamic />
 

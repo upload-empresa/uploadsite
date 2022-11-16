@@ -166,7 +166,7 @@ export function HomeSectionSobre() {
                 w="35%"
                 p={{ base: 0, lg: 8, xl: 8 }}
             >
-                <Image src="/images/sobrenos.png" width={"256px"} height={"255px"} alt="Sobre Nós" />
+                <Image src="/images/sobrenos.png" width={"1077px"} height={"1072px"} alt="Sobre Nós" />
             </Stack>
         </HStack>
     )
