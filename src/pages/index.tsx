@@ -1,33 +1,16 @@
 import { Flex, Stack, Text } from "@chakra-ui/react"
 import dynamic from "next/dynamic"
 
+import { HomeB1H, HomeB1V, HomeSectionCardH, HomeSectionCardV, HomeSectionSobre } from "../components/Dynamic/home"
+import { Buttons } from "../components/SEO/buttons"
+
 
 export default function Home() {
-
   const HookFormDynamic = dynamic(() => import("../components/contactForm/Form").then(module => module.default))
-
-  const NavbarDynamic = dynamic(() => import("../components/Navbar").then(module => module.Navbar))
-
-  const FooterDynamic = dynamic(() => import("../components/Footer").then(module => module.Footer))
-
-  const ButtonsDynamic = dynamic(() => import("../components/SEO/buttons").then(module => module.Buttons))
-
   const HeaderDynamic = dynamic(() => import("../components/SEO/head").then(module => module.Header))
-
-  const HomeB1HDynamic = dynamic(() => import("../components/Dynamic/home").then(module => module.HomeB1H))
-
-  const HomeB1VDynamic = dynamic(() => import("../components/Dynamic/home").then(module => module.HomeB1V))
-
-  const HomeSectionCardHDynamic = dynamic(() => import("../components/Dynamic/home").then(module => module.HomeSectionCardH))
-
-  const HomeSectionCardVDynamic = dynamic(() => import("../components/Dynamic/home").then(module => module.HomeSectionCardV))
-
-  const HomeSectionSobreDynamic = dynamic(() => import("../components/Dynamic/home").then(module => module.HomeSectionSobre))
-
   return (
     <>
       <HeaderDynamic title={"Upload"} description={"A Upload é uma empresa de software especializada em produtos web personalizados, como sites, landing pages, sistemas de gestão e lojas virtuais."} />
-      <NavbarDynamic />
       <Stack
         as="main"
       >
@@ -36,8 +19,8 @@ export default function Home() {
           px={{ base: 6, md: 8, lg: 12 }}
           flexDir="column"
         >
-          <HomeB1HDynamic />
-          <HomeB1VDynamic />
+          <HomeB1H/>
+          <HomeB1V/>
         </Flex>
         <Stack
           spacing={{ base: 6 }}
@@ -54,15 +37,14 @@ export default function Home() {
           >
             Produtos
           </Text>
-          <HomeSectionCardHDynamic />
-          <HomeSectionCardVDynamic />
-          <ButtonsDynamic text={"Descubra"} tam={"20%"} color={"#82735c"} colorhover={"black"} bgcolor={"#ffffff4d"} bgcolorhover={"#2facfa"} rota={"/produtos"} />
+          <HomeSectionCardH />
+          <HomeSectionCardV />
+          <Buttons text={"Descubra"} tam={"20%"} color={"#82735c"} colorhover={"black"} bgcolor={"#ffffff4d"} bgcolorhover={"#2facfa"} rota={"/produtos"} />
         </Stack>
-        <HomeSectionSobreDynamic />
+        <HomeSectionSobre />
 
         <HookFormDynamic />
       </Stack>
-      <FooterDynamic />
     </>
 
   )
