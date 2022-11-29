@@ -2,6 +2,7 @@ import { Heading, HStack, Stack, Text, Link } from "@chakra-ui/react"
 import Image from 'next/image'
 import NextLink from 'next/link'
 import dynamic from "next/dynamic"
+
 import { TextProduto } from "../components/SEO/textproduto"
 import { HeaderProduto } from "../components/SEO/headerproduto"
 import { ButtonProduto } from "../components/SEO/buttonproduto"
@@ -33,13 +34,14 @@ export default function Produtos() {
                         <Stack
                             spacing={5}
 
-                            align={{ base: "center", msm: "center", md: "center", lg: "start", xl: "start" }}
+                            align={{ base: "start" }}
 
                         >
                             <Heading
                                 as='h1'
                                 fontSize={{ sm: "40px", base: "48px" }}
                                 fontWeight="600"
+                                w="100%"
 
                             >
                                 Modernize seu
@@ -53,14 +55,14 @@ export default function Produtos() {
                             <Text
                                 as="p"
                                 fontSize="24px"
-                                textAlign={{ base: "center", msm: "center", md: "center", lg: "left", xl: "left" }}
-                                w={{ base: "80%", msm: "60%", md: "50%", lg: "100%", xl: "100%" }}
+                                textAlign={{ base: "left" }}
+                                w={{ base: "100%" }}
 
                             >
                                 Conheça nossos produtos e descubra como você pode se destacar no mercado.
                             </Text>
                             <Stack
-                                w={{ base: "75%", msm: "75%", md: "40%", lg: "50%", xl: "50%" }}
+                                w={{ base: "100%", msm: "75%", md: "40%", lg: "50%", xl: "50%" }}
                                 spacing={6}
 
                             >
@@ -104,7 +106,7 @@ export default function Produtos() {
                 </CardLeft>
                 <HStack
                     flexDir={{ base: "column", msm: "column", md: "column", lg: "row-reverse", xl: "row-reverse" }}
-                    spacing={28}
+                    spacing={{ lg: 28, xl: 28 }}
                 >
                     <Image src="/images/sistema.png" width="220%" height={"220%"} alt="Notebook com site" />
                     <Stack

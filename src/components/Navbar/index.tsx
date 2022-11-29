@@ -21,6 +21,7 @@ export function Navbar() {
             boxShadow='0px 15px 20px #0000001a'
             position="sticky"
             top="0"
+            spacing={0}
             zIndex='1000'
         >
             <FigureImage />
@@ -56,10 +57,13 @@ export function Navbar() {
                 left="0%"
                 overflowY="auto"
                 display={display}
+                spacing={0}
+
             >
 
                 <Stack
                     align="end"
+                    spacing={0}
                 >
                     <IconButton
                         aria-label='Close Menu'
@@ -75,6 +79,7 @@ export function Navbar() {
                 </Stack>
                 <Stack
                     align="center"
+                    spacing={0}
                 >
                     <Navigation name="Home" link='/' />
                     <Navigation name="Produtos" link='/produtos' />

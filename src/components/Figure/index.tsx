@@ -3,6 +3,7 @@ import { Flex } from "@chakra-ui/react"
 import Image from 'next/image'
 
 
+
 export function FigureImage() {
     return (
         <Flex

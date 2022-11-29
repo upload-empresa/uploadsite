@@ -10,9 +10,10 @@ interface CardsProps {
     text: string
     tamw: string
     tamh: string
+    tam?: any
 }
 
-export function Cards({ urlimage, description, title, tamw, text, tamh }: CardsProps) {
+export function Cards({ urlimage, description, title, tamw, text, tamh, tam }: CardsProps) {
     return (
         <Flex
             bg="white"
@@ -37,7 +38,9 @@ export function Cards({ urlimage, description, title, tamw, text, tamh }: CardsP
 
                     >
                         <Flex
+                            w={tam}
                             justify="center"
+                            align={"center"}
                         >
                             <Image src={urlimage} width={tamw} height={tamh} alt={description} />
                         </Flex>

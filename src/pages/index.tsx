@@ -39,7 +39,7 @@ export default function Home() {
           </Text>
           <HomeSectionCardH />
           <HomeSectionCardV />
-          <Buttons text={"Descubra"} tam={"20%"} color={"#82735c"} colorhover={"black"} bgcolor={"#ffffff4d"} bgcolorhover={"#2facfa"} rota={"/produtos"} />
+          <Buttons text={"Descubra"} tam={{base:"60%", md:"28%", msm:"45%", xl:"18%"}} color={"#82735c"} colorhover={"black"} bgcolor={"#ffffff4d"} bgcolorhover={"#2facfa"} rota={"/produtos"} />
         </Stack>
         <HomeSectionSobre />
 

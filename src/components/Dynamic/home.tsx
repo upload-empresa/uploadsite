@@ -43,7 +43,11 @@ export function HomeB1H() {
                 </Heading>
                 <ButtonsDynamic text={"Embarcar"} tam={"65%"} bgcolor={'#2facfa57'} bgcolorhover={"#2facfa"} rota={"/produtos"} />
             </Stack>
-            <Image src="/images/tablet.png" width="256px" height="351px" alt="Site em um Tablet" />
+            <Stack
+                as="picture"
+            >
+                <Image src="/images/tablet.png" width="256px" height="351px" alt="Site em um Tablet" />
+            </Stack>
         </HStack>
 
     )
@@ -108,9 +112,9 @@ export function HomeSectionCardH() {
             align={{ base: "center", md: "stretch", lg: "strech", xl: "stretch" }}
             flexDir={{ base: "column", lg: "row", xl: "row" }}
         >
-            <CardsDynamic urlimage="/images/siteexemplo.png" tamw="256px" tamh="149px" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
-            <CardsDynamic urlimage="/images/sistema.png" tamw="256px" tamh="293px" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
-            <CardsDynamic urlimage="/images/loja.png" tamw="256px" tamh="204px" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
+            <CardsDynamic urlimage="/images/siteexemplo.png"  tamw="256px" tamh="149px" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
+            <CardsDynamic urlimage="/images/sistema.png" tam={{lg:"75%", xl:"60%"}} tamw="256px" tamh="293px" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
+            <CardsDynamic urlimage="/images/loja.png" tam={{lg:"85%", xl:"75%"}} tamw="256px" tamh="204px" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
         </HStack>
 
     )
@@ -125,9 +129,9 @@ export function HomeSectionCardV() {
             spacing={{ base: 6 }}
 
         >
-            <CardsDynamic urlimage="/images/siteexemplo.png" tamw="256px" tamh="149px" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
-            <CardsDynamic urlimage="/images/sistema.png" tamw="256px" tamh="293px" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
-            <CardsDynamic urlimage="/images/loja.png" tamw="256px" tamh="204px" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
+            <CardsDynamic urlimage="/images/siteexemplo.png" tam={{base:"100%"}} tamw="256px" tamh="149px" description="Exemplo de Site" title="Sites" text="Sua empresa pode ser fora de série, possuir o melhor atendimento do mercado e oferecer um produto de altíssima qualidade. Mas, de que adiantaria tudo isso se as pessoas não encontrassem o que você faz? Ter um site é a forma mais simples de ser encontrado hoje na internet." />
+            <CardsDynamic urlimage="/images/sistema.png" tam={{sm:"70%", msm:"65%", md:"30%"}} tamw="256px" tamh="293px" description="Exemplo de Sistema" title="Sistemas" text="A função de um sistema é otimizar as atividades operacionais que compõem a gestão do negócio ou do setor em si. Ele proporciona maior transparência e controle, seja das operações como também dos dados, melhorando assim, as suas tomadas de atitudes." />
+            <CardsDynamic urlimage="/images/loja.png" tam={{sm:"70%", msm:"65%", md:"30%"}} tamw="256px" tamh="204px" description="Exemplo de E-commerce" title="E-commerces" text="Seu produto consegue chegar para muita gente, mas jamais atingirá o potencial total, se seu negócio não tiver uma loja virtual. Atualmente, no Brasil, vivemos uma revolução de lojas online e eu te pergunto, se é ruim, por que todo mundo faz? Ficar no método tradicional não dá mais." />
 
         </Stack>
 
@@ -163,7 +167,7 @@ export function HomeSectionSobre() {
                 </Text>
             </Stack>
             <Stack
-                w="35%"
+                w={{base:"35%", msm:"60%", sm:"70%"}}
                 p={{ base: 0, lg: 8, xl: 8 }}
             >
                 <Image src="/images/sobrenos.png" width={"1077px"} height={"1072px"} alt="Sobre Nós" />

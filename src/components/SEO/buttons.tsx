@@ -3,7 +3,7 @@ import NextLink from 'next/link'
 
 interface ButtonsProps {
     text: string
-    tam: string
+    tam: any
     bgcolor: string
     bgcolorhover: string
     color?: string
