@@ -35,6 +35,7 @@ export function Cards({ urlimage, description, title, tamw, text, tamh, tam }: C
                 >
                     <Stack
                         spacing={{ base: 2 }}
+                        align="center"
 
                     >
                         <Flex
