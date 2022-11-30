@@ -10,6 +10,7 @@ import { DescriptionProduto } from "../components/SEO/descriptionproduto"
 import { SectionDescription } from "../components/SEO/descriptiobutton"
 import { SectionTitles } from "../components/SEO/titletext"
 import { CardLeft } from "../components/Card/cardleft"
+import { Imagens } from "../components/SEO/images"
 
 export default function Produtos() {
 
@@ -23,6 +24,7 @@ export default function Produtos() {
                 flexDir="row"
             >
                 <Stack
+                    justify={{iba: "center"}}
                 >
                     <HStack
                         w="100%"
@@ -87,7 +89,7 @@ export default function Produtos() {
                                 </NextLink>
                             </Stack>
                         </Stack>
-                        <Image src="/images/produto.jpeg" alt="Produto Upload" width="618px" height="620px" />
+                        <Imagens tam={{iba: "30%", xl: "27%", lg:"60%", md: "45%", msm:"90%", sm:"90%"}} path={"/images/produto.jpeg"} description={"Produto Upload"} tamw={"618"} tamh={"620"} />
                     </HStack>
                 </Stack>
             </Stack>
@@ -98,7 +100,7 @@ export default function Produtos() {
                 px={4}
                 flexDir={{ base: "column", lg: "column", xl: "column" }}
             >
-                <CardLeft urlimage={"/images/siteexemplo.png"} altura={"378"} largura={"648"} description={"Notebook com site"}>
+                <CardLeft urlimage={"/images/siteexemplo.png"} altura={"378"} largura={"648"} description={"Notebook com site"} tam={{iba: "22%", xl: "27%", lg:"40%", md: "45%", msm:"85%", sm:"85%"}}>
 
                     <SectionTitles text1={"01"} text2={"Sites"} />
                     <SectionDescription text1={"Precisando aumentar a visibilidade do seu negócio? O site é o produto certo para você!"} text2={"Peça Agora"} />
@@ -108,7 +110,7 @@ export default function Produtos() {
                     flexDir={{ base: "column", msm: "column", md: "column", lg: "row-reverse", xl: "row-reverse" }}
                     spacing={{ lg: 28, xl: 28 }}
                 >
-                    <Image src="/images/sistema.png" width="220%" height={"220%"} alt="Notebook com site" />
+                    <Imagens tam={{iba: "22%", xl: "18%", lg:"30%", md: "35%", msm:"60%", sm:"70%"}} path={"/images/sistema.png"} description={"Notebook com site"} tamw={"467"} tamh={"535"} />
                     <Stack
                         flexDir={{ base: "column" }}
                         align={{ base: 'center', lg: "flex-end", xl: "flex-end" }}
@@ -132,7 +134,7 @@ export default function Produtos() {
                         </Stack>
                     </Stack>
                 </HStack>
-                <CardLeft urlimage={"/images/loja.png"} altura={"446"} largura={"559"} description={"Notebook com site"}>
+                <CardLeft urlimage={"/images/loja.png"} altura={"446"} largura={"559"} description={"Notebook com site"} tam={{iba: "20%", xl: "30%", lg:"47%", md: "40%", msm:"65%", sm:"85%"}}>
                     <SectionTitles text1={"03"} text2={"Sistemas"} />
                     <SectionDescription text1={"Organização, praticidade, armazenamento de dados em um só lugar? Venha conversar com a gente e fazer o sistema da sua empresa."} text2={"Peça Agora"} />
 
