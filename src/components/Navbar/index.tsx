@@ -37,6 +37,8 @@ export function Navbar() {
 
                 <Navigation name="Contato" link='/#contato' />
 
+                <Navigation name="Blog" link='/blog' />
+
             </HStack>
             <IconButton
                 aria-label={'Open Menu'}
@@ -84,6 +86,7 @@ export function Navbar() {
                     <Navigation name="Home" link='/' />
                     <Navigation name="Produtos" link='/produtos' />
                     <Navigation name="Contato" link='/#contato' />
+                    <Navigation name="Blog" link='/blog' />
                 </Stack>
             </Stack>
         </HStack>
