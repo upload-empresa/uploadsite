@@ -1,4 +1,9 @@
 import { Button, Grid, GridItem, Heading, HStack, Input, Stack, Text } from "@chakra-ui/react"
+import NextLink from 'next/link'
+
+import { CardBlog } from "../components/Card/cardblog"
+import { CardBlogMain } from "../components/Card/cardblogmain"
+import { CardBlogV } from "../components/Card/cardblogv"
 
 
 export default function Blog() {
@@ -10,7 +15,7 @@ export default function Blog() {
         >
             <HStack
                 px={{ base: 6, md: 8, lg: 12 }}
-                py={{ base: 10, md: 15, lg: 20 }}
+                pt={{ base: 10, md: 15, lg: 20 }}
             >
                 <Stack
                     w={"50%"}
@@ -57,7 +62,8 @@ export default function Blog() {
             </HStack>
             <Stack
                 px={{ base: 6, md: 8, lg: 12 }}
-                py={{ base: 10, md: 15, lg: 20 }}
+                pb={{ base: 10, md: 15, lg: 20 }}
+                pt={10}
             >
                 <Grid
                     bg="white"
@@ -66,24 +72,23 @@ export default function Blog() {
                     p={8}
                     templateAreas={`"h h h"
                       "n m f"`}
-                    gridTemplateRows={'1fr 1.3fr '}
+                    gridTemplateRows={'0.8fr 1.3fr '}
                     gridTemplateColumns={'1fr 1fr 1fr'}
-                    h='700px'
                     gap='4'
                     color='blackAlpha.700'
                     fontWeight='bold'
                 >
-                    <GridItem pl='2' bg='orange.300' area={'h'}>
-                        Header
+                    <GridItem area={'h'}>
+                        <CardBlogMain />
                     </GridItem>
-                    <GridItem pl='2' bg='pink.300' area={'n'}>
-                        Nav
+                    <GridItem area={'n'}>
+                        <CardBlogV />
                     </GridItem>
-                    <GridItem pl='2' bg='green.300' area={'m'}>
-                        Main
+                    <GridItem area={'m'}>
+                        <CardBlogV />
                     </GridItem>
-                    <GridItem pl='2' bg='blue.300' area={'f'}>
-                        Footer
+                    <GridItem area={'f'}>
+                        <CardBlogV />
                     </GridItem>
                 </Grid>
             </Stack>
@@ -128,6 +133,45 @@ export default function Blog() {
                         Quero me inscrever
                     </Button>
                 </Stack>
+            </HStack>
+            <HStack
+                py={{ base: 10, md: 15, lg: 20 }}
+                px={{ base: 6, md: 8, lg: 12 }}
+            >
+                <Stack
+                    spacing={12}
+                >
+                    <CardBlog />
+                    <CardBlog />
+                    <CardBlog />
+                    <CardBlog />
+                    <Stack
+                        align={"center"}
+                    >
+                        <NextLink href={"/recentes"}>
+                            <Button
+                                as="button"
+                                w={"20%"}
+                                fontSize={{ base: "28px", lg: "20px", xl: "20px" }}
+                                fontWeight="600"
+                                background={"#2facfa57"}
+                                py={6}
+                                color={"black"}
+                                transition="ease-in 0.2s all"
+                                transitionDelay="50ms"
+                                px={4}
+                                borderRadius="full"
+                                _hover={{
+                                    bg: "#2facfa57",
+                                    color: "black"
+                                }}
+                            >
+                                Veja mais +
+                            </Button>
+                        </NextLink>
+                    </Stack>
+                </Stack>
+
             </HStack>
         </Stack>
     )

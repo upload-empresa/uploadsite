@@ -1,4 +1,4 @@
-import { Stack } from "@chakra-ui/react"
+import { border, Stack } from "@chakra-ui/react"
 import Image from "next/image"
 
 interface ImagensProps {
@@ -7,13 +7,15 @@ interface ImagensProps {
     description: string
     tamw: string
     tamh: string
+    borderRadius?: string
 }
 
-export function Imagens({ tam, path, description, tamw, tamh }:ImagensProps) {
+export function Imagens({ tam, path, description, tamw, tamh, borderRadius }:ImagensProps) {
     return(
         <Stack
             as="picture"
             w={tam}
+            borderRadius={borderRadius}
         >
             <Image src={path} alt={description} width={tamw} height={tamh}/>
         </Stack>
