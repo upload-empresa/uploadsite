@@ -1,5 +1,4 @@
 import { Heading, HStack, Stack, Text, Link } from "@chakra-ui/react"
-import Image from 'next/image'
 import NextLink from 'next/link'
 import dynamic from "next/dynamic"
 
@@ -56,7 +55,7 @@ export default function Produtos() {
                             </Heading>
                             <Text
                                 as="p"
-                                fontSize="24px"
+                                fontSize={{base:"24px", sm:"20px", nvl:"20px"}}
                                 textAlign={{ base: "left" }}
                                 w={{ base: "100%" }}
 
@@ -64,7 +63,7 @@ export default function Produtos() {
                                 Conheça nossos produtos e descubra como você pode se destacar no mercado.
                             </Text>
                             <Stack
-                                w={{ base: "100%", msm: "75%", md: "40%", lg: "50%", xl: "50%" }}
+                                w={{ base: "100%", sm:"88%",  nvl:"75%", msm: "75%", md: "40%", lg: "50%", xl: "35%" }}
                                 spacing={6}
 
                             >
@@ -77,7 +76,7 @@ export default function Produtos() {
                                         borderRadius="32px"
                                         px={6}
                                         py={4}
-                                        fontSize="24px"
+                                        fontSize={{base:"24px", sm:"20px", nvl:"20px"}}
                                         textAlign="center"
                                         mb="5%"
                                         _hover={{

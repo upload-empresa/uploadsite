@@ -12,7 +12,7 @@ export function ButtonProduto({ text }:ButtonProdutoProps) {
                 colorScheme="blackAlpha"
                 fontSize="20px"
                 color="white"
-                w={{ base: "65%", lg: "23%" }}
+                w={{ base: "65%", nvl:"55%", msm:"50%", md:"25%", lg: "23%" }}
                 py={6}
                 borderRadius="full"
                 as="button"

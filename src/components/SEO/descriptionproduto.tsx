@@ -10,7 +10,8 @@ export function DescriptionProduto({ text }:DescriptionProdutoProps) {
             fontSize="20px"
             color="white"
             as="p"
-            maxW={{ base: "100%", lg: "55%" }}
+            textAlign={{base:"center", md:"center", lg:"start", xl:"start", iba:"start"}}
+            maxW={{ base: "100%", md:"70%", lg: "55%" }}
         >
             {text}
         </Text>
