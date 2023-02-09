@@ -4,18 +4,18 @@ const data = {
   posts: [
     {
       title:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      slug: 'titulo1',
+        'Captar novos clientes: Como tornar seu negócio mais rentável',
+      slug: 'captar-novos-clientes',
       data: '13 Jan | Leitura: 10min',
       category: 'categoria1',
       image: '/image 4.png',
       rating: 4.5,
       numReviews: 10,
-      author: 'Iba',
+      author: 'Gabriel Botelho',
       perfil: '/image 4.png',
       body: 'Loren Ipsum',
       resume:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor `<br />` sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     {
       title:
