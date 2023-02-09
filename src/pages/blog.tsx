@@ -6,9 +6,11 @@ import { CardBlogMain } from "../components/Card/cardblogmain"
 import { CardBlogV } from "../components/Card/cardblogv"
 import { TextBlue } from "../components/SEO/textblue"
 
+import db from '../utils/db';
+import Post from '../models/Post';
 
-export default function Blog() {
-
+export default function Blog(props: { posts: any; featuredPosts: any; }) {
+    const { posts, featuredPosts } = props
 
     return (
         <Stack
@@ -79,9 +81,11 @@ export default function Blog() {
                     color='blackAlpha.700'
                     fontWeight='bold'
                 >
-                    <GridItem area={'h'}>
-                        <CardBlogMain />
-                    </GridItem>
+                    {featuredPosts.map((post: any) => (
+                        <GridItem area={'h'}>
+                            <CardBlogMain href={`/post/${post.slug}`} data={post.data} title={post.title} author={post.author} body={post.body} />
+                        </GridItem>
+                    ))}
                     <GridItem area={'n'}>
                         <CardBlogV />
                     </GridItem>
@@ -142,10 +146,10 @@ export default function Blog() {
                 <Stack
                     spacing={12}
                 >
-                    <CardBlog />
-                    <CardBlog />
-                    <CardBlog />
-                    <CardBlog />
+                    {posts.map((post: any) => (
+                        <CardBlog href={`/post/${post.slug}`} data={post.data} title={post.title} author={post.author} />
+
+                    ))}
                     <Stack
                         align={"center"}
                     >
@@ -176,4 +180,22 @@ export default function Blog() {
             </HStack>
         </Stack>
     )
+}
+
+export const getServerSideProps = async () => {
+    await db.connect();
+    const posts = await Post.find({}).lean();
+    const featuredPostsDocs = await Post.find({}, '-reviews')
+        .lean()
+        .sort({
+            rating: -1,
+        })
+        .limit(3);
+    await db.disconnect();
+    return {
+        props: {
+            posts: posts.map(db.convertDocToObj),
+            featuredPosts: featuredPostsDocs.map(db.convertDocToObj)
+        },
+    }
 }

@@ -2,7 +2,13 @@ import { Stack, Heading, HStack, Text } from "@chakra-ui/react"
 
 import { Imagens } from "../SEO/images"
 
-export function CardBlogV() {
+interface CardBlogVProps {
+    title?: string,
+    author?: string
+    body?: string
+}
+
+export function CardBlogV({ title, author, body }: CardBlogVProps) {
     return (
         <Stack
             align={"center"}
@@ -21,12 +27,14 @@ export function CardBlogV() {
                     fontWeight={500}
                     lineHeight={"30px"}
                 >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    {title}
+
                 </Heading>
                 <Text
 
                 >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    {body}
+
                 </Text>
                 <HStack
                     justify={"space-between"}
@@ -43,7 +51,7 @@ export function CardBlogV() {
                             lineHeight={"22px"}
                             color={"#171923"}
                         >
-                            Gabriel Botelho
+                            {author}
                         </Text>
                     </HStack>
                     <Text
