@@ -54,7 +54,7 @@ export default function PostBlog() {
                             lineHeight={"22px"}
                             color={"#4a5568"}
                         >
-                            12 Jan | Leitura: 10min
+                            09 Fev | Leitura: 06min
                         </Text>
                     </HStack>
                     <Imagens tam={"95%"} path={"/images/postblog.jpeg"} description={"Gabriel Botelho"} tamw={"1600"} tamh={"936"} />
