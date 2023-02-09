@@ -11,6 +11,7 @@ export function DrawerUp() {
     return (
         <>
             <Button
+                //@ts-ignore
                 ref={btnRef}
                 colorScheme='teal'
                 onClick={onOpen}
@@ -26,7 +27,8 @@ export function DrawerUp() {
                 isOpen={isOpen}
                 placement='right'
                 onClose={onClose}
-                size={{base:"xs"}}
+                size={{ base: "xs" }}
+                //@ts-ignore
                 initialFocusRef={btnRef}
             >
                 <DrawerOverlay />
