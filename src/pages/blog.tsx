@@ -4,6 +4,7 @@ import NextLink from 'next/link'
 import { CardBlog } from "../components/Card/cardblog"
 import { CardBlogMain } from "../components/Card/cardblogmain"
 import { CardBlogV } from "../components/Card/cardblogv"
+import { TextBlue } from "../components/SEO/textblue"
 
 
 export default function Blog() {
@@ -27,7 +28,7 @@ export default function Blog() {
                         lineHeight={"60px"}
                         fontWeight={500}
                     >
-                        Aqui você encontra aquele <Text as="span" color="#2facfa" >impulso que o seu negócio precisa</Text>
+                        Aqui você encontra aquele <TextBlue>impulso que o seu negócio precisa</TextBlue>
                     </Heading>
                     <Text
                         as="p"
