@@ -8,13 +8,15 @@ interface ImagensProps {
     tamw: string
     tamh: string
     borderRadius?: string
+    align?: any
 }
 
-export function Imagens({ tam, path, description, tamw, tamh, borderRadius }:ImagensProps) {
+export function Imagens({ tam, path, description, tamw, tamh, borderRadius, align }:ImagensProps) {
     return(
         <Stack
             as="picture"
             w={tam}
+            align={align}
             borderRadius={borderRadius}
         >
             <Image src={path} alt={description} width={tamw} height={tamh}/>

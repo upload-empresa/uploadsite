@@ -1,4 +1,4 @@
-import { Heading, HStack, Stack, Text } from "@chakra-ui/react"
+import { Heading, HStack, Stack, Text, Link } from "@chakra-ui/react"
 
 import { Buttons } from "../SEO/buttons"
 import { Imagens } from "../SEO/images"
@@ -6,73 +6,142 @@ import { Imagens } from "../SEO/images"
 import NextLink from 'next/link'
 
 interface CardBlogMainProps {
-    title?: string,
-    author?: string,
-    body?: string,
-    data?: string,
-    href?: any
+
+    href: any
 }
 
-export function CardBlogMain({ title, author, body, data, href }: CardBlogMainProps) {
+export function CardBlogMain({ href }: CardBlogMainProps) {
     return (
         <NextLink href={href} passHref>
-            <HStack
-                spacing={10}
+            <Link
+                as="a"
+                _hover={{
+                    textDecor: "none"
+                }}
             >
-                <Stack
-                    spacing={8}
+                <HStack
+                    spacing={10}
                 >
-                    <Heading
-                        as="h2"
-                        fontSize={"22px"}
-                        fontWeight={800}
-                        lineHeight={"30px"}
+                    <Stack
+                        spacing={8}
                     >
-                        {title}
-
-                    </Heading>
-                    <Text
-
-                    >
-                        {body}
-
-                    </Text>
-                    <HStack
-                        justify={"space-between"}
-                    >
-                        <HStack
-
-                            w={"50%"}
+                        <Heading
+                            as="h2"
+                            fontSize={"22px"}
+                            fontWeight={800}
+                            color={"black"}
+                            lineHeight={"30px"}
                         >
-                            <Imagens tam={"10%"} path={"/images/iba.jpg"} description={"Imagem genérica"} tamw={"356"} tamh={"200"} borderRadius={"full"} />
+                            Captar novos clientes: Como tornar seu negócio mais rentável
+                        </Heading>
+                        <Text
+                            as="p"
+                        >
+                            A captação de novos clientes tem se tornado cada vez mais desafiadora para os novos empreendedores e também para aqueles que atualmente estão se atualizando.
+                        </Text>
+                        <HStack
+                            justify={"space-between"}
+                        >
+                            <HStack
+                                w={"50%"}
+                            >
+                                <Imagens tam={"10%"} path={"/images/Group 1.png"} description={"Gabriel Botelho"} tamw={"40"} tamh={"40"} />
+                                <Text
+                                    as="p"
+                                    fontSize={"14px"}
+                                    fontWeight={500}
+                                    lineHeight={"22px"}
+                                    color={"#171923"}
+                                >
+                                    Gabriel Botelho
+                                </Text>
+                            </HStack>
                             <Text
                                 as="p"
                                 fontSize={"14px"}
                                 fontWeight={500}
                                 lineHeight={"22px"}
-                                color={"#171923"}
+                                color={"#4a5568"}
                             >
-                                {author}
+                                09 Fev | Leitura: 6min
                             </Text>
                         </HStack>
+                    </Stack>
+                    <Stack
+                        w="90%"
+                    >
+                        <Imagens tam={"100%"} path={"/images/postblog.jpeg"} description={"Gabriel Botelho"} tamw={"1600"} tamh={"936"} />
+                    </Stack>
+                </HStack>
+            </Link>
+        </NextLink>
+    )
+}
+
+export function CardBlogMainV({ href }: CardBlogMainProps) {
+    return (
+        <NextLink href={href} passHref>
+            <Link
+                as="a"
+                _hover={{
+                    textDecor: "none"
+                }}
+            >
+                <Stack
+                    spacing={10}
+                >
+                    <Stack
+                        spacing={8}
+                    >
+                        <Heading
+                            as="h2"
+                            fontSize={"22px"}
+                            fontWeight={800}
+                            color={"black"}
+                            lineHeight={"30px"}
+                        >
+                            Captar novos clientes: Como tornar seu negócio mais rentável
+                        </Heading>
                         <Text
                             as="p"
-                            fontSize={"14px"}
-                            fontWeight={500}
-                            lineHeight={"22px"}
-                            color={"#4a5568"}
                         >
-                            13 Jan | Leitura: 10min
+                            A captação de novos clientes tem se tornado cada vez mais desafiadora para os novos empreendedores e também para aqueles que atualmente estão se atualizando.
                         </Text>
-                    </HStack>
-                    <Buttons text={""} tam={undefined} bgcolor={""} bgcolorhover={""} rota={""} />
+                        <HStack
+                            justify={"space-between"}
+                        >
+                            <HStack
+                                w={"50%"}
+                            >
+                                <Imagens tam={{msm:"13%", sm:"20%", min:"100%"}} path={"/images/Group 1.png"} description={"Gabriel Botelho"} tamw={"40"} tamh={"40"} />
+                                <Text
+                                    as="p"
+                                    fontSize={{msm:"14px", sm:"14px", min:"12px"}}
+                                    fontWeight={500}
+                                    lineHeight={"22px"}
+                                    color={"#171923"}
+                                >
+                                    Gabriel Botelho
+                                </Text>
+                            </HStack>
+                            <Text
+                                as="p"
+                                fontSize={{msm:"14px", sm:"14px", min:"12px"}}
+                                fontWeight={500}
+                                lineHeight={"22px"}
+                                color={"#4a5568"}
+                            >
+                                09 Fev | Leitura: 6min
+                            </Text>
+                        </HStack>
+                    </Stack>
+                    <Stack
+                        w="90%"
+                    >
+                        <Imagens tam={"100%"} path={"/images/postblog.jpeg"} description={"Gabriel Botelho"} tamw={"1600"} tamh={"936"} />
+                    </Stack>
                 </Stack>
-                <Stack
-                    w="90%"
-                >
-                    <Imagens tam={"100%"} path={"/images/iba.jpg"} description={"Imagem genérica"} tamw={"356"} tamh={"200"} />
-                </Stack>
-            </HStack>
+            </Link>
         </NextLink>
     )
 }

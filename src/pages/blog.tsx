@@ -1,201 +1,54 @@
-import { Button, Grid, GridItem, Heading, HStack, Input, Stack, Text } from "@chakra-ui/react"
-import NextLink from 'next/link'
+import { Stack } from "@chakra-ui/react"
 
-import { CardBlog } from "../components/Card/cardblog"
-import { CardBlogMain } from "../components/Card/cardblogmain"
-import { CardBlogV } from "../components/Card/cardblogv"
-import { TextBlue } from "../components/SEO/textblue"
+import { CardBlogMain, CardBlogMainV } from "../components/Card/cardblogmain"
+import { BlogMobile, BlogMobileV } from "../components/SEO/blogmobile"
+import { Newsletter, NewsletterV } from "../components/SEO/newsletter"
 
-import db from '../utils/db';
-import Post from '../models/Post';
 
-export default function Blog(props: { posts: any; featuredPosts: any; }) {
-    const { posts, featuredPosts } = props
+export default function Blog() {
 
     return (
         <Stack
             as="main"
         >
-            <HStack
-                px={{ base: 6, md: 8, lg: 12 }}
-                pt={{ base: 10, md: 15, lg: 20 }}
-            >
-                <Stack
-                    w={"50%"}
-                    spacing={6}
-                >
-                    <Heading
-                        as="h1"
-                        fontSize={"48px"}
-                        lineHeight={"60px"}
-                        fontWeight={500}
-                    >
-                        Aqui você encontra aquele <TextBlue>impulso que o seu negócio precisa</TextBlue>
-                    </Heading>
-                    <Text
-                        as="p"
-                        fontSize={"20px"}
-                        lineHeight={"30px"}
-                        color="#82735C"
-                    >
-                        Seja bem-vindo ao blog da Upload. Aprenda sobre como alavancar, organizar e desenvolver seu negócio usando as melhores ferramentas e estratégias do mercado.
-                    </Text>
-                    <Button
-                        as="button"
-                        w={"40%"}
-                        fontSize={{ base: "28px", lg: "20px", xl: "20px" }}
-                        fontWeight="600"
-                        background={"#2facfa57"}
-                        py={6}
-                        color={"black"}
-                        transition="ease-in 0.2s all"
-                        transitionDelay="50ms"
-                        px={4}
-                        borderRadius="full"
-                        _hover={{
-                            bg: "#2facfa57",
-                            color: "black"
-                        }}
-
-                    >
-                        Inscreva-se
-                    </Button>
-                </Stack>
-                {/* <Imagens tam={undefined} path={""} description={""} tamw={"500"} tamh={"500"} /> */}
-            </HStack>
+            <BlogMobile />
+            <BlogMobileV />
             <Stack
                 px={{ base: 6, md: 8, lg: 12 }}
                 pb={{ base: 10, md: 15, lg: 20 }}
+                display={{ md: "flex", xl: "flex", lg: "flex", msm:"none", sm:"none", min:"none" }}
                 pt={10}
             >
-                <Grid
+                <Stack
                     bg="white"
                     borderRadius="8px"
                     boxShadow={"5px 6px 8px 1px #00000054"}
-                    p={8}
-                    templateAreas={`"h h h"
-                      "n m f"`}
-                    gridTemplateRows={'0.8fr 1.3fr '}
-                    gridTemplateColumns={'1fr 1fr 1fr'}
-                    gap='4'
+                    p={{base:8, md:6}}
                     color='blackAlpha.700'
                     fontWeight='bold'
                 >
-                    {featuredPosts.map((post: any) => (
-                        <GridItem area={'h'}>
-                            <CardBlogMain href={`/post/${post.slug}`} data={post.data} title={post.title} author={post.author} body={post.body} />
-                        </GridItem>
-                    ))}
-                    <GridItem area={'n'}>
-                        <CardBlogV />
-                    </GridItem>
-                    <GridItem area={'m'}>
-                        <CardBlogV />
-                    </GridItem>
-                    <GridItem area={'f'}>
-                        <CardBlogV />
-                    </GridItem>
-                </Grid>
+                    <CardBlogMain href={"/captar-novos-clientes"} />
+                </Stack>
             </Stack>
-            <HStack
-                py={12}
-                px={10}
-                spacing={8}
-                bgGradient='linear(to-l, #A1D6DA, #C1C1D9)'
-            >
-                <Stack
-                    w={"50%"}
-                    spacing={5}
-                >
-                    <Heading
-                        fontWeight={400}
-                    >
-                        Inscreva-se em nosso blog
-                    </Heading>
-                    <Text
-                        fontWeight={500}
-                    >
-                        Receba todos os <Text as="span" fontWeight={600}>conteúdos totalmente grátis</Text> e faça seu negócio se destacar!
-                    </Text>
-                </Stack>
-                <Stack
-                    w={"50%"}
-                    spacing={5}
-                >
-                    <Input placeholder='Digite seu melhor email' isRequired w="80%" bg="white" size='lg' />
-                    <Button
-                        as="button"
-                        bgColor="#ffffff4d"
-                        color={"#82735C"}
-                        w={"45%"}
-                        borderRadius="full"
-                        fontSize={{ base: "28px", lg: "20px", xl: "20px" }}
-                        fontWeight="600"
-                        py={6}
-                        px={4}
-
-                    >
-                        Quero me inscrever
-                    </Button>
-                </Stack>
-            </HStack>
-            <HStack
-                py={{ base: 10, md: 15, lg: 20 }}
+            <Stack
                 px={{ base: 6, md: 8, lg: 12 }}
+                pb={{ base: 10, md: 15, lg: 20 }}
+                display={{ msm: "flex", sm: "flex", min: "flex", md:"none", lg:"none", xl:"none" }}
+                pt={10}
             >
                 <Stack
-                    spacing={12}
+                    bg="white"
+                    borderRadius="8px"
+                    boxShadow={"5px 6px 8px 1px #00000054"}
+                    p={{base:8, md:6}}
+                    color='blackAlpha.700'
+                    fontWeight='bold'
                 >
-                    {posts.map((post: any) => (
-                        <CardBlog href={`/post/${post.slug}`} data={post.data} title={post.title} author={post.author} />
-
-                    ))}
-                    <Stack
-                        align={"center"}
-                    >
-                        <NextLink href={"/recentes"}>
-                            <Button
-                                as="button"
-                                w={"20%"}
-                                fontSize={{ base: "28px", lg: "20px", xl: "20px" }}
-                                fontWeight="600"
-                                background={"#2facfa57"}
-                                py={6}
-                                color={"black"}
-                                transition="ease-in 0.2s all"
-                                transitionDelay="50ms"
-                                px={4}
-                                borderRadius="full"
-                                _hover={{
-                                    bg: "#2facfa57",
-                                    color: "black"
-                                }}
-                            >
-                                Veja mais +
-                            </Button>
-                        </NextLink>
-                    </Stack>
+                    <CardBlogMainV href={"/captar-novos-clientes"} />
                 </Stack>
-
-            </HStack>
+            </Stack>
+            <Newsletter />
+            <NewsletterV />
         </Stack>
     )
-}
-
-export const getServerSideProps = async () => {
-    await db.connect();
-    const posts = await Post.find({}).lean();
-    const featuredPostsDocs = await Post.find({}, '-reviews')
-        .lean()
-        .sort({
-            rating: -1,
-        })
-        .limit(3);
-    await db.disconnect();
-    return {
-        props: {
-            posts: posts.map(db.convertDocToObj),
-            featuredPosts: featuredPostsDocs.map(db.convertDocToObj)
-        },
-    }
 }

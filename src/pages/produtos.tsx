@@ -1,5 +1,4 @@
 import { Heading, HStack, Stack, Text, Link } from "@chakra-ui/react"
-import Image from 'next/image'
 import NextLink from 'next/link'
 import dynamic from "next/dynamic"
 
