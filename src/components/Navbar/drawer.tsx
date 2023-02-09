@@ -47,6 +47,8 @@ export function DrawerUp() {
                             <Navigation name="Home" link='/' />
                             <Navigation name="Produtos" link='/produtos' />
                             <Navigation name="Contato" link='/#contato' />
+                            <Navigation name="Contato" link='/blog' />
+
                         </Stack>
                     </DrawerBody>
 
