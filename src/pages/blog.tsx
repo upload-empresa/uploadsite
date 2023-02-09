@@ -1,4 +1,5 @@
 import { Stack } from "@chakra-ui/react"
+import dynamic from "next/dynamic"
 
 import { CardBlogMain, CardBlogMainV } from "../components/Card/cardblogmain"
 import { BlogMobile, BlogMobileV } from "../components/SEO/blogmobile"
@@ -6,6 +7,7 @@ import { Newsletter, NewsletterV } from "../components/SEO/newsletter"
 
 
 export default function Blog() {
+    const HeaderDynamic = dynamic(() => import("../components/SEO/head").then(module => module.Header))
 
     return (
         <Stack
