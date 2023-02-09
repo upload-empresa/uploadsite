@@ -1,50 +1,60 @@
 import { Heading, HStack, Stack, Text } from "@chakra-ui/react"
 import { Imagens } from "../SEO/images"
+import NextLink from 'next/link'
 
-export function CardBlog() {
+interface CardBlogProps {
+    title: string,
+    author: string,
+    data: string,
+    href: string
+}
+
+export function CardBlog({ title, author, data, href }: CardBlogProps) {
     return (
-        <HStack
-            align={"start"}
-            spacing={4}
-        >
-            <Imagens tam={"30%"} path={"/images/iba.jpg"} description={"Imagem genérica"} tamw={"356"} tamh={"200"} />
-            <Stack
-                spacing={8}
+        <NextLink href={href} passHref>
+            <HStack
+                align={"start"}
+                spacing={4}
             >
-                <Heading
-                    as="h2"
-                    fontSize={"22px"}
-                    fontWeight={800}
-                    lineHeight={"30px"}
+                <Imagens tam={"30%"} path={"/images/iba.jpg"} description={"Imagem genérica"} tamw={"356"} tamh={"200"} />
+                <Stack
+                    spacing={8}
                 >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </Heading>
-                <HStack
-                    justify={"space-between"}
-                >
-                    <HStack>
-                        <Imagens tam={"10%"} path={"/images/iba.jpg"} description={"Imagem genérica"} tamw={"356"} tamh={"200"} borderRadius={"full"} />
+                    <Heading
+                        as="h2"
+                        fontSize={"22px"}
+                        fontWeight={800}
+                        lineHeight={"30px"}
+                    >
+                        {title}
+                    </Heading>
+                    <HStack
+                        justify={"space-between"}
+                    >
+                        <HStack>
+                            <Imagens tam={"10%"} path={"/images/iba.jpg"} description={"Imagem genérica"} tamw={"356"} tamh={"200"} borderRadius={"999px"} />
+                            <Text
+                                as="p"
+                                fontSize={"14px"}
+                                fontWeight={500}
+                                lineHeight={"22px"}
+                                color={"#171923"}
+                            >
+                                {author}
+                            </Text>
+                        </HStack>
                         <Text
                             as="p"
                             fontSize={"14px"}
                             fontWeight={500}
                             lineHeight={"22px"}
-                            color={"#171923"}
+                            color={"#4a5568"}
                         >
-                            Gabriel Botelho
+                            13 Jan | Leitura: 10min
                         </Text>
                     </HStack>
-                    <Text
-                        as="p"
-                        fontSize={"14px"}
-                        fontWeight={500}
-                        lineHeight={"22px"}
-                        color={"#4a5568"}
-                    >
-                        12 Jan | Leitura: 10min
-                    </Text>
-                </HStack>
-            </Stack>
-        </HStack>
+                </Stack>
+            </HStack>
+        </NextLink>
     )
 }

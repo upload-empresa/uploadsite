@@ -1,41 +1,23 @@
-import { Stack, Heading, HStack, Text } from "@chakra-ui/react"
 
-import { Imagens } from "../SEO/images"
+import { Heading, Stack, HStack, Text } from "@chakra-ui/react"
 
-interface CardBlogVProps {
-    title?: string,
-    author?: string
-    body?: string
-}
+import { Imagens } from "../components/SEO/images"
 
-export function CardBlogV({ title, author, body }: CardBlogVProps) {
+export default function PostBlog() {
     return (
         <Stack
-            align={"center"}
-            p={6}
-            spacing={4}
+            px={{ base: 6, md: 8, lg: 12 }}
+            pt={{ base: 10, md: 15, lg: 20 }}
         >
             <Stack>
-                <Imagens tam={"100%"} path={"/images/iba.jpg"} description={"Imagem genérica"} tamw={"356"} tamh={"200"} />
-            </Stack>
-            <Stack
-                spacing={8}
-            >
                 <Heading
                     as="h2"
                     fontSize={"22px"}
-                    fontWeight={500}
+                    fontWeight={800}
                     lineHeight={"30px"}
                 >
-                    {title}
-
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </Heading>
-                <Text
-
-                >
-                    {body}
-
-                </Text>
                 <HStack
                     justify={"space-between"}
                 >
@@ -51,7 +33,7 @@ export function CardBlogV({ title, author, body }: CardBlogVProps) {
                             lineHeight={"22px"}
                             color={"#171923"}
                         >
-                            {author}
+                            Gabriel Botelho
                         </Text>
                     </HStack>
                     <Text
@@ -64,6 +46,7 @@ export function CardBlogV({ title, author, body }: CardBlogVProps) {
                         12 Jan | Leitura: 10min
                     </Text>
                 </HStack>
+                <Imagens tam={"100%"} path={"/images/iba.jpg"} description={"Imagem genérica"} tamw={"356"} tamh={"200"} />
             </Stack>
 
 
