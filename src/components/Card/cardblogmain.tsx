@@ -1,16 +1,38 @@
 import { Heading, HStack, Stack, Text, Link } from "@chakra-ui/react"
 
-import { Buttons } from "../SEO/buttons"
 import { Imagens } from "../SEO/images"
 
 import NextLink from 'next/link'
 
 interface CardBlogMainProps {
-
+    title: string
     href: any
+    text: string
+    data: string
+    tempo: string
+    tam: string
+    path: string
+    tamW: string
+    tamH: string
+    description: string
+
 }
 
-export function CardBlogMain({ href }: CardBlogMainProps) {
+interface CardBlogMainVProps {
+    title: string
+    href: any
+    text: string
+    data: string
+    tempo: string
+    tam: string
+    path: string
+    tamW: string
+    tamH: string
+    description: string
+
+}
+
+export function CardBlogMain({ href, title, text, tempo, data, tam, path, tamW, tamH, description }: CardBlogMainProps) {
     return (
         <NextLink href={href} passHref>
             <Link
@@ -32,12 +54,12 @@ export function CardBlogMain({ href }: CardBlogMainProps) {
                             color={"black"}
                             lineHeight={"30px"}
                         >
-                            Captar novos clientes: Como tornar seu negócio mais rentável
+                            {title}
                         </Heading>
                         <Text
                             as="p"
                         >
-                            A captação de novos clientes tem se tornado cada vez mais desafiadora para os novos empreendedores e também para aqueles que atualmente estão se atualizando.
+                            {text}
                         </Text>
                         <HStack
                             justify={"space-between"}
@@ -63,14 +85,14 @@ export function CardBlogMain({ href }: CardBlogMainProps) {
                                 lineHeight={"22px"}
                                 color={"#4a5568"}
                             >
-                                09 Fev | Leitura: 6min
+                                {data} Fev | Leitura: {tempo}min
                             </Text>
                         </HStack>
                     </Stack>
                     <Stack
                         w="90%"
                     >
-                        <Imagens tam={"100%"} path={"/images/postblog.jpeg"} description={"Gabriel Botelho"} tamw={"1600"} tamh={"936"} />
+                        <Imagens tam={tam} path={path} description={description} tamw={tamW} tamh={tamH} />
                     </Stack>
                 </HStack>
             </Link>
@@ -78,7 +100,7 @@ export function CardBlogMain({ href }: CardBlogMainProps) {
     )
 }
 
-export function CardBlogMainV({ href }: CardBlogMainProps) {
+export function CardBlogMainV({ href, title, text, data, tempo, tam, path, tamW, tamH, description }: CardBlogMainVProps) {
     return (
         <NextLink href={href} passHref>
             <Link
@@ -88,10 +110,10 @@ export function CardBlogMainV({ href }: CardBlogMainProps) {
                 }}
             >
                 <Stack
-                    spacing={10}
+                    spacing={6}
                 >
                     <Stack
-                        spacing={8}
+                        spacing={4}
                     >
                         <Heading
                             as="h2"
@@ -100,12 +122,12 @@ export function CardBlogMainV({ href }: CardBlogMainProps) {
                             color={"black"}
                             lineHeight={"30px"}
                         >
-                            Captar novos clientes: Como tornar seu negócio mais rentável
+                            {title}
                         </Heading>
                         <Text
                             as="p"
                         >
-                            A captação de novos clientes tem se tornado cada vez mais desafiadora para os novos empreendedores e também para aqueles que atualmente estão se atualizando.
+                            {text}
                         </Text>
                         <HStack
                             justify={"space-between"}
@@ -131,14 +153,14 @@ export function CardBlogMainV({ href }: CardBlogMainProps) {
                                 lineHeight={"22px"}
                                 color={"#4a5568"}
                             >
-                                09 Fev | Leitura: 6min
+                                {data} Fev | Leitura: {tempo}min
                             </Text>
                         </HStack>
                     </Stack>
                     <Stack
                         w="90%"
                     >
-                        <Imagens tam={"100%"} path={"/images/postblog.jpeg"} description={"Gabriel Botelho"} tamw={"1600"} tamh={"936"} />
+                        <Imagens tam={tam} path={path} description={description} tamw={tamW} tamh={tamH} />
                     </Stack>
                 </Stack>
             </Link>

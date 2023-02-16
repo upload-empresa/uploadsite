@@ -31,8 +31,10 @@ export default function Blog() {
                         p={{ base: 8, md: 6 }}
                         color='blackAlpha.700'
                         fontWeight='bold'
+                        spacing={7}
                     >
-                        <CardBlogMain href={"/captar-novos-clientes"} />
+                        <CardBlogMain href={"/captar-novos-clientes"} title={"Captar novos clientes: Como tornar seu negócio mais rentável"} text={"A captação de novos clientes tem se tornado cada vez mais desafiadora para os novos empreendedores e também para aqueles que atualmente estão se atualizando."} data={"09"} tempo={"05"} tam={"100%"} path={"/images/postblog.jpeg"} tamW={"1600"} tamH={"936"} description={"Gabriel Botelho"} />
+                        <CardBlogMain href={"modelo-de-negocios"} title={"Modelo de negócios: como criar um modelo de negócios"} text={"Muitas pessoas acreditam que para você se destacar no mercado precisa necessariamente ter uma ideia completamente original e inovadora. Porém, isso não é verdade e eu posso provar."} data={"16"} tempo={"05"} tam={"100%"} path={"/images/pexels.jpg"} tamW={"1600"} tamH={"936"} description={"Gabriel Botelho"} />
                     </Stack>
                 </Stack>
                 <Stack
@@ -48,8 +50,10 @@ export default function Blog() {
                         p={{ base: 8, md: 6 }}
                         color='blackAlpha.700'
                         fontWeight='bold'
+                        spacing={14}
                     >
-                        <CardBlogMainV href={"/captar-novos-clientes"} />
+                        <CardBlogMainV href={"/captar-novos-clientes"} title={"Captar novos clientes: Como tornar seu negócio mais rentável"} text={"A captação de novos clientes tem se tornado cada vez mais desafiadora para os novos empreendedores e também para aqueles que atualmente estão se atualizando."} data={"09"} tempo={"05"} tam={"100%"} path={"/images/postblog.jpeg"} tamW={"1600"} tamH={"936"} description={"Gabriel Botelho"} />
+                        <CardBlogMainV href={"modelo-de-negocios"} title={"Modelo de negócios: como criar um modelo de negócios"} text={"Muitas pessoas acreditam que para você se destacar no mercado precisa necessariamente ter uma ideia completamente original e inovadora. Porém, isso não é verdade e eu posso provar."} data={"16"} tempo={"05"} tam={"100%"} path={"/images/pexels.jpg"} tamW={"1600"} tamH={"936"} description={"Gabriel Botelho"} />
                     </Stack>
                 </Stack>
                 <Newsletter />

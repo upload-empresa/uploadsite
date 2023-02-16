@@ -36,7 +36,7 @@ export default function PostBlog() {
 
                             w={"50%"}
                         >
-                            <Imagens tam={"7%"} path={"/images/Group 1.png"} description={"Gabriel Botelho"} tamw={"40"} tamh={"40"} />
+                            <Imagens tam={{min:"40%",nvl:"25%",md:"10%",lg:"7%", xl:"7%"}} path={"/images/Group 1.png"} description={"Gabriel Botelho"} tamw={"40"} tamh={"40"} />
                             <Text
                                 as="p"
                                 fontSize={"14px"}
@@ -54,7 +54,7 @@ export default function PostBlog() {
                             lineHeight={"22px"}
                             color={"#4a5568"}
                         >
-                            09 Fev | Leitura: 06min
+                            09 Fev | Leitura: 05min
                         </Text>
                     </HStack>
                     <Imagens tam={"95%"} path={"/images/postblog.jpeg"} description={"Gabriel Botelho"} tamw={"1600"} tamh={"936"} />
@@ -151,6 +151,7 @@ export default function PostBlog() {
                             Contudo, é preciso criar conteúdos de relevância, para que você seja notado com facilidade. Então, busque aprimorar sua escrita e também as técnicas mais atuais de copywriting.
                             <br /><br />
                             E, se você não conhece ainda o que é copywriting, basta clicar <Links link={"https://growthidea.com.br/copywriting-o-texto-vendedor/"}>aqui.</Links>
+                            <br /><br />
                         </Text>
                     </Stack>
 
