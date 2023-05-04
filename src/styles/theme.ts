@@ -13,6 +13,9 @@ export const theme = extendTheme({
                 scrollBehavior: 'smooth',
                 bg: '#fafafa',
                 color: 'black',
+            },
+            html: {
+                scrollBehavior: 'smooth'
             }
         }
     },

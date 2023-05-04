@@ -3,12 +3,12 @@ import { Heading, Stack, HStack, Text } from "@chakra-ui/react"
 import dynamic from "next/dynamic"
 
 
-import { Imagens } from "../components/SEO/images"
-import { Links } from "../components/SEO/links"
-import { LinksInternos } from "../components/SEO/linksiternos"
+import { Imagens } from "../../components/SEO/images"
+import { Links } from "../../components/SEO/links"
+import { LinksInternos } from "../../components/SEO/linksiternos"
 
 export default function PostBlog() {
-    const HeaderDynamic = dynamic(() => import("../components/SEO/head").then(module => module.Header))
+    const HeaderDynamic = dynamic(() => import("../../components/SEO/head").then(module => module.Header))
     return (
         <>
             <HeaderDynamic title={"Upload | Modelo de negócios: como criar um modelo de negócios"} description={"Muitas pessoas acreditam que para você se destacar no mercado precisa necessariamente ter uma ideia completamente original e inovadora."} />

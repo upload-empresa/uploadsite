@@ -3,12 +3,12 @@ import { Heading, Stack, HStack, Text } from "@chakra-ui/react"
 import dynamic from "next/dynamic"
 
 
-import { Imagens } from "../components/SEO/images"
-import { Links } from "../components/SEO/links"
-import { LinksInternos } from "../components/SEO/linksiternos"
+import { Imagens } from "../../components/SEO/images"
+import { Links } from "../../components/SEO/links"
+import { LinksInternos } from "../../components/SEO/linksiternos"
 
 export default function PostBlog() {
-    const HeaderDynamic = dynamic(() => import("../components/SEO/head").then(module => module.Header))
+    const HeaderDynamic = dynamic(() => import("../../components/SEO/head").then(module => module.Header))
     return (
         <>
             <HeaderDynamic title={"Upload | Captar novos clientes: Como tornar seu negócio mais rentável"} description={"A captação de novos clientes tem se tornado cada vez mais desafiadora para os novos empreendedores e também para aqueles que atualmente estão se atualizando."} />
