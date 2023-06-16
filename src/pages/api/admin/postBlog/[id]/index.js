@@ -4,7 +4,7 @@ import Post from '../../../../../models/Post';
 
 const handler = nc();
 
-handler.get(async(req, res) => {
+handler.get(async (req, res) => {
     await db.connect();
     const post = await post.findById({});
     await db.disconnect();
@@ -33,4 +33,17 @@ handler.put(async (req, res) => {
         res.status(404).send({ message: 'Post não encontrado' });
     }
 
+});
+
+handler.delete(async (req, res) => {
+    await db.connect();
+    const post = await Post.findById(req.body.id);
+    if (post) {
+        await post.remove();
+        await db.disconnect();
+        res.send({ message: "Post Deletado"});
+    } else {
+        await db.disconnect();
+        res.status(404).send({ message: "Post Não Encontrado"});
+    }
 });
