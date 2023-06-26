@@ -6,14 +6,14 @@ const handler = nc();
 
 handler.get(async (req, res) => {
     await db.connect();
-    const post = await post.findById({});
+    const post = await Post.findById(req.query.id);
     await db.disconnect();
     res.send(post);
 });
 
 handler.put(async (req, res) => {
     await db.connect();
-    const post = await Post.findById(req.body.id);
+    const post = await Post.findById(req.query.id);
     if (post) {
         post.title = req.body.title;
         post.data = req.body.data;
@@ -47,3 +47,5 @@ handler.delete(async (req, res) => {
         res.status(404).send({ message: "Post Não Encontrado"});
     }
 });
+
+export default handler;
