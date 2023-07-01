@@ -28,6 +28,6 @@ export const theme = extendTheme({
         lg: '960px',
         xl: '1200px',
         iba: '1536px',
-    }
+    },
 })
 
