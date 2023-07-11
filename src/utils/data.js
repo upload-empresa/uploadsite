@@ -1,5 +1,5 @@
 const data = {
-  user: [
+  users: [
     {
       name: "Brenner Costa",
       email: "costabrenner1@gmail.com",

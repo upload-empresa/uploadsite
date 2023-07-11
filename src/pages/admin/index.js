@@ -4,8 +4,9 @@ import { useRouter } from "next/router";
 import NextLink from "next/link";
 import React, { useEffect, useContext, useReducer } from "react";
 import { getError } from "../../utils/error";
-import { LoginProfile } from "../../utils/loginProfile";
+import { Store } from "../../u../../utils/Store";
 import { useSnackbar } from "notistack";
+import { MainBlog } from "../../components/Main";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -35,15 +36,15 @@ function reducer(state, action) {
 }
 
 function AdminPosts() {
-  const { state } = useContext(LoginProfile);
+  const  state  = useContext(Store);
   const router = useRouter();
-  const { userInfo } = state;
+  const userInfo  = state;
 
   const [{ posts, successDelete }, dispatch] = useReducer(reducer, {
     loading: true,
     posts: [],
     error: "",
-  });
+  }); //conseguir puxar os posts e fazer a rota do id
 
   useEffect(() => {
     if (!userInfo) {
@@ -52,7 +53,7 @@ function AdminPosts() {
     const fetchData = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
-        const { data } = await axios.get(`api/admin/posts`, {
+        const { data } = await axios.get(`api/admin/postBlog`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: "FETCH_SUCCESS", payload: data });
@@ -68,14 +69,15 @@ function AdminPosts() {
   }, [successDelete]);
 
   const { enqueueSnackbar } = useSnackbar();
+  
   const createHandler = async () => {
-    if (!window.confirm("Tem certeza?")) {
-      return;
+    if (!window.confirm("Tem certeza? create")) {
+      return console.log("deu merda");
     }
     try {
       dispatch({ type: "CREATE_REQUEST" });
-      const { data } = axios.post(
-        `/api/admin/post'`,
+      const { data } = await axios.post(
+        `/api/admin/postBlog`, // Essa rota leva para a index do postBlog, criando um post genérico.
         {},
         {
           headers: { authorization: `Bearer ${userInfo.token}` },
@@ -83,7 +85,7 @@ function AdminPosts() {
       );
       dispatch({ type: "CREATE_SUCCESS" });
       enqueueSnackbar("Post criado com sucesso!", { variant: "success" });
-      router.push(`/admin/posts/${data.post._id}`);
+      router.push(`/admin/post/${data.post._id}`); //A rota direciona para a parte de edição do post que foi criado
     } catch (err) {
       dispatch({ type: "CREATE_FAIL" });
       enqueueSnackbar(getError(err), { variant: "error" });
@@ -96,7 +98,7 @@ function AdminPosts() {
     }
     try {
       dispatch({ type: "DELETE_REQUEST" });
-      await axios.delete(`/api/admin/posts/${postId}`, {
+      await axios.delete(`/api/admin/postBlog/${postId}`, {
         headers: { authorization: `Bearer ${userInfo.token}` },
       });
       dispatch({ type: "DELETE_SUCCESS" });
@@ -106,9 +108,13 @@ function AdminPosts() {
       enqueueSnackbar(getError(err), {variant: 'eror'})
     }
   };
+  
+  return(
+    <>
+      <MainBlog posts={posts} href={`/admin/post/${posts._id}`} onClickCreate={createHandler()} onClickDelete={() => deleteHandler(posts._id)}/>
+    </>
+  )
+};
 
-  return (
-    <></> //FRONT END
-  );
 
-}
+export default dynamic(() => Promise.resolve(AdminPosts), { ssr: false });

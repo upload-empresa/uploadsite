@@ -6,9 +6,10 @@ interface FormsProps {
     placeholder: string
     w?: string
     mb?: any
+    errors?: any
 }
 
-export function Forms({ label, placeholder, type, w, mb }: FormsProps) {
+export function Forms({ label, placeholder, type, w, mb, errors }: FormsProps) {
     return (
         <FormControl w={w} mb={mb} >
             <FormLabel color={"#828282"} fontSize={{'2xl':"18px", lg:"14px", md:"14px", xxs:"14px"}}>{label}</FormLabel>

@@ -1,4 +1,5 @@
 import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Stack, HStack } from "@chakra-ui/react"
+import { PostAddSharp } from "@material-ui/icons"
 
 import { ButtonAdd, ButtonBlog } from "../Button"
 import { HeadingAdminBlog } from "../Heading"
@@ -10,9 +11,13 @@ interface TableBlogProps {
     email: string
     href: string
     w: any
+    onClickCreate: any
+    onClickDelete: any
+    onClickEdit: any
+    posts: any
 }
 
-export function TableBlog({ name, phone, email, href, w }: TableBlogProps) {
+export function TableBlog({ name, phone, email, href, w, onClickCreate, onClickDelete, onClickEdit, posts }: TableBlogProps) {
     return (
         <TableContainer w={w} py={8} px={6}>
                 <Stack>
@@ -20,7 +25,7 @@ export function TableBlog({ name, phone, email, href, w }: TableBlogProps) {
                         justify={"space-between"}
                     >
                         <HeadingAdminBlog />
-                        <ButtonAdd text={"Novo Post"} href={"/admin/createpost"} />
+                        <ButtonAdd text={"Novo Post"} href={href} onClick={onClickCreate}/>
                     </HStack>
                     <Table>
                         <Thead>
@@ -32,13 +37,20 @@ export function TableBlog({ name, phone, email, href, w }: TableBlogProps) {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            <Tr>
-                                <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}><ButtonBlog href={href} /></Td>
-                                <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{name}</Td>
-                                <Td textAlign={"start"} color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{phone}</Td>
-                                <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{email}</Td>
-                            </Tr>
-                            <Tr>
+                            {posts.map((post:any)=> (
+                                <Tr key={post._id}>
+                                    <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>
+                                    <ButtonBlog 
+                                    href={href} onClickDelete={onClickDelete(post._id)} onClickEdit={onClickEdit}/>
+                                    </Td>
+                                    <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{post.name}</Td>
+                                    <Td textAlign={"start"} color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{post.phone}</Td>
+                                    <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{post.email}</Td>
+                                </Tr>
+
+
+                            ))}
+                            {/* <Tr>
                                 <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}><ButtonBlog href={href} /></Td>
                                 <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>Jorge</Td>
                                 <Td textAlign={"start"} color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>(32) 9555-0118</Td>
@@ -49,7 +61,7 @@ export function TableBlog({ name, phone, email, href, w }: TableBlogProps) {
                                 <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>Jorge</Td>
                                 <Td textAlign={"start"} color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>(32) 9555-0118</Td>
                                 <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>jane@microsoft.com</Td>
-                            </Tr>
+                            </Tr> */}
                         </Tbody>
                     </Table>
                 </Stack>
