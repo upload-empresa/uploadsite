@@ -41,23 +41,24 @@ export function TableBlog({ name, phone, email, href, w, onClickCreate, onClickD
                                 <Tr key={post._id}>
                                     <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>
                                     <ButtonBlog 
-                                    href={href} onClickDelete={onClickDelete(post._id)} onClickEdit={onClickEdit}/>
+                                    href={href} onClickDelete={() => onClickDelete(post._id)} onClickEdit={() => onClickEdit}/>
                                     </Td>
-                                    <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{post.name}</Td>
-                                    <Td textAlign={"start"} color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{post.phone}</Td>
-                                    <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{post.email}</Td>
+                                    <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{post._id}</Td>
+                                    <Td textAlign={"start"} color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{post.title}</Td>
+                                    <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>{post.data}</Td>
                                 </Tr>
 
+                                    // LOOP INFINITO AQUI - 
 
                             ))}
                             {/* <Tr>
-                                <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}><ButtonBlog href={href} /></Td>
+                                <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}><ButtonBlog href={href} onClickDelete={undefined} onClickEdit={undefined} /></Td>
                                 <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>Jorge</Td>
                                 <Td textAlign={"start"} color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>(32) 9555-0118</Td>
                                 <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>jane@microsoft.com</Td>
                             </Tr>
                             <Tr>
-                                <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}><ButtonBlog href={href} /></Td>
+                                <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}><ButtonBlog href={href} onClickDelete={undefined} onClickEdit={undefined} /></Td>
                                 <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>Jorge</Td>
                                 <Td textAlign={"start"} color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>(32) 9555-0118</Td>
                                 <Td color={"#474749"} fontSize={{'2xl':"20px",xl:"16px", lg:"14px", xxs:"14px"}}>jane@microsoft.com</Td>

@@ -48,7 +48,7 @@ export function MainPostBlog({ uploadHandler, submitHandler, handlerSubmit, erro
                     spacing={5}
                 >
                     <HStack spacing={6} flexDir={"row"}>
-                        <Forms label={"Título"} type={"text"} placeholder={"Digite o título do post"} mb={"0"} errors={Boolean(errors.title)}/>
+                        <Forms label={"Título"} type={"text"} placeholder={"Digite o título do post"} mb={"0"} errors={Boolean(errors.title)} />
                         <Forms label={"Data do post"} type={"date"} placeholder={"Digite a data do post"} errors={Boolean(errors.data)} />
                     </HStack>
                     <HStack spacing={6} flexDir={"row"}>

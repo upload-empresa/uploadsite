@@ -38,13 +38,16 @@ function reducer(state, action) {
       return state;
   }
 }
+
 //@ts-ignore
 function PostEdit({ params }) {
+  console.log(params);
   const [value, setValueR] = useState("");
   const getValue = (value: React.SetStateAction<string>) => {
     setValueR(value);
   };
   const postId = params.id;
+  console.log(postId);
   const { state } = useContext(Store);
   const [{ loading, error, loadingUpdate, loadingUpload }, dispatch] =
     useReducer(reducer, {
@@ -162,7 +165,7 @@ function PostEdit({ params }) {
       );
       dispatch({ type: 'UPDATE_SUCCESS' });
       enqueueSnackbar('Post editado com sucesso', { variant: 'success' });
-      router.push('/admin/posts');
+      router.push('/admin');
     } catch (err) {
       dispatch({ type: 'UPDATE_FAIL', payload: getError(err) });
       enqueueSnackbar(getError(err), { variant: 'error' });
@@ -179,6 +182,13 @@ function PostEdit({ params }) {
     </>
   )
 };
+
+//@ts-ignore
+export async function getServerSideProps({ params }) {
+  return {
+    props: { params },
+  };
+}
 
 export default dynamic(() => Promise.resolve(PostEdit), { ssr: false });
 

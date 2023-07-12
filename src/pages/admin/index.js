@@ -36,9 +36,9 @@ function reducer(state, action) {
 }
 
 function AdminPosts() {
-  const  state  = useContext(Store);
+  const { state }  = useContext(Store); 
   const router = useRouter();
-  const userInfo  = state;
+  const { userInfo }  = state;
 
   const [{ posts, successDelete }, dispatch] = useReducer(reducer, {
     loading: true,
@@ -48,7 +48,7 @@ function AdminPosts() {
 
   useEffect(() => {
     if (!userInfo) {
-      router.push("/login");
+      router.push('/login');
     }
     const fetchData = async () => {
       try {
@@ -71,8 +71,8 @@ function AdminPosts() {
   const { enqueueSnackbar } = useSnackbar();
   
   const createHandler = async () => {
-    if (!window.confirm("Tem certeza? create")) {
-      return console.log("deu merda");
+    if (!window.confirm("Tem certeza que deseja criar um novo post?")) {
+      return;
     }
     try {
       dispatch({ type: "CREATE_REQUEST" });
@@ -89,11 +89,11 @@ function AdminPosts() {
     } catch (err) {
       dispatch({ type: "CREATE_FAIL" });
       enqueueSnackbar(getError(err), { variant: "error" });
-    }
+    };
   };
 
   const deleteHandler = async (postId) => {
-    if (!window.confirm("Tem certeza?")) {
+    if (!window.confirm("Tem certeza que deseja deletar? ")) {
       return;
     }
     try {
@@ -105,13 +105,13 @@ function AdminPosts() {
       enqueueSnackbar("Post deletado com sucesso!", { variant: "success" });
     } catch (err) {
       dispatch({ type: "DELETE_FAIL" });
-      enqueueSnackbar(getError(err), {variant: 'eror'})
+      enqueueSnackbar(getError(err), {variant: 'error'})
     }
   };
   
   return(
     <>
-      <MainBlog posts={posts} href={`/admin/post/${posts._id}`} onClickCreate={createHandler()} onClickDelete={() => deleteHandler(posts._id)}/>
+      <MainBlog posts={posts} href={`/admin/post/${posts._id}`} onClickCreate={() => createHandler()} onClickDelete={() => deleteHandler()}/>
     </>
   )
 };
