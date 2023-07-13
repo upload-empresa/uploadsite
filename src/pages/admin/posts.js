@@ -68,7 +68,7 @@ function AdminPosts() {
     const fetchData = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`/api/admin/posts`, {
+        const { data } = await axios.get(`/api/admin/postBlog`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -91,7 +91,7 @@ function AdminPosts() {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
       const { data } = await axios.post(
-        `/api/admin/posts`,
+        `/api/admin/postBlog`,
         {},
         {
           headers: { authorization: `Bearer ${userInfo.token}` },
