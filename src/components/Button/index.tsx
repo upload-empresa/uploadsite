@@ -4,15 +4,17 @@ import { MdAdd, MdDelete, MdEdit } from "react-icons/md"
 import { Links } from "../Links"
 
 interface ButtonPacientesProps {
-    href: any
+    hrefDelete: any
+    hrefEdit: any
     onClickDelete: any
     onClickEdit: any
+    post: any
 }
 
-export function ButtonBlog({ href, onClickDelete, onClickEdit}: ButtonPacientesProps) {
+export function ButtonBlog({ post, hrefEdit, hrefDelete, onClickDelete, onClickEdit}: ButtonPacientesProps) {
     return (
         <HStack>
-            <Links href="">
+            <Links href={hrefDelete}>
             <IconButton
                 type="submit"
                 colorScheme='red'
@@ -20,10 +22,10 @@ export function ButtonBlog({ href, onClickDelete, onClickEdit}: ButtonPacientesP
                 size={{'2xl':"md", lg:'sm', xxs:"sm"}}
                 fontSize={{'2xl':"24px", xl:"18px", xxs:"16px"}}
                 icon={<MdDelete />}
-                onClick={onClickDelete}
+                onClick={() => onClickDelete(post)}
             />
             </Links>
-            <Links href={href}>
+            <Links href={hrefEdit}>
                 <IconButton
                     type="submit"
                     colorScheme='blue'
@@ -31,7 +33,7 @@ export function ButtonBlog({ href, onClickDelete, onClickEdit}: ButtonPacientesP
                     size={{'2xl':"md", lg:'sm', xxs:"sm"}}
                     fontSize={{'2xl':"24px", xl:"18px", xxs:"16px"}}
                     icon={<MdEdit />}
-                    onClick={onClickEdit}
+                    // onClick={onClickEdit}
                 />
             </Links>
         </HStack>

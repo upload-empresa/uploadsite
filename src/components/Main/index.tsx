@@ -9,7 +9,6 @@ interface MainBlogProps {
     href: any
     onClickCreate: any
     onClickDelete: any
-    onClickEdit: any
     posts: any
 }
 
@@ -17,19 +16,20 @@ interface MainPostBlogProps {
     uploadHandler: any
     submitHandler: any
     handlerSubmit: any
+    onClickEdit: any
     errors?: any
 }
 
 // 
-export function MainBlog({href, onClickCreate, onClickDelete, onClickEdit, posts}:MainBlogProps) {
+export function MainBlog({ onClickCreate, onClickDelete, onClickEdit, submitHandler, posts}:MainBlogProps & MainPostBlogProps) {
+    
     return (
         <HStack
             align={"stretch"}
             w="100%"
         >
             <Sidebar w={"15%"} />
-            <TableBlog w={"85%"} title={"Joaquim"} name={"Iba"} phone={"Iba"} 
-            email={"iba"} href={href} onClickCreate={onClickCreate} onClickDelete={onClickDelete} onClickEdit={onClickEdit} posts={posts}/>
+            <TableBlog w={"85%"} title={"Joaquim"} href={`/admin/post/${posts}`} onClickCreate={onClickCreate} onClickDelete={onClickDelete} onClickEdit={onClickEdit} posts={posts}/>
         </HStack>
     )
 }
@@ -37,6 +37,7 @@ export function MainBlog({href, onClickCreate, onClickDelete, onClickEdit, posts
 export function MainPostBlog({ uploadHandler, submitHandler, handlerSubmit, errors}:MainPostBlogProps) {
     return (
         <form onSubmit={handlerSubmit(submitHandler)}>
+            
             <HStack
                 align={"stretch"}
             >

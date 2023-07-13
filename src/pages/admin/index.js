@@ -15,7 +15,7 @@ function reducer(state, action) {
     case "FETCH_SUCCESS":
       return { ...state, loading: false, posts: action.payload, error: "" };
     case "FETCH_FAIL":
-      return { ...state, loading: false, error: action.payload };
+      return { ...state, loading: false, error: action.payload }; //undefined
     case "CREATE_REQUEST":
       return { ...state, loadingCreate: true };
     case "CREATE_SUCCESS":
@@ -39,13 +39,14 @@ function AdminPosts() {
   const { state }  = useContext(Store); 
   const router = useRouter();
   const { userInfo }  = state;
-
+  
   const [{ posts, successDelete }, dispatch] = useReducer(reducer, {
     loading: true,
     posts: [],
     error: "",
   }); //conseguir puxar os posts e fazer a rota do id
-
+  
+  // console.log(posts);
   useEffect(() => {
     if (!userInfo) {
       router.push('/login');
@@ -98,12 +99,14 @@ function AdminPosts() {
     }
     try {
       dispatch({ type: "DELETE_REQUEST" });
+      console.log("Cheguei até o try");
       await axios.delete(`/api/admin/postBlog/${postId}`, {
         headers: { authorization: `Bearer ${userInfo.token}` },
       });
       dispatch({ type: "DELETE_SUCCESS" });
       enqueueSnackbar("Post deletado com sucesso!", { variant: "success" });
     } catch (err) {
+      console.log("Cheguei até o catch");
       dispatch({ type: "DELETE_FAIL" });
       enqueueSnackbar(getError(err), {variant: 'error'})
     }
@@ -111,10 +114,10 @@ function AdminPosts() {
   
   return(
     <>
-      <MainBlog posts={posts} href={`/admin/post/${posts._id}`} onClickCreate={() => createHandler()} onClickDelete={() => deleteHandler()}/>
+      <MainBlog posts={posts} onClickCreate={() => createHandler()} onClickDelete={() => deleteHandler()}/>
     </>
   )
 };
-
+// 
 
 export default dynamic(() => Promise.resolve(AdminPosts), { ssr: false });

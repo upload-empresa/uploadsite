@@ -177,8 +177,8 @@ function PostEdit({ params }) {
 
   return (
     <>
-      <MainPostBlog uploadHandler={uploadHandler} submitHandler={submitHandler} handlerSubmit={handleSubmit} 
-      errors={errors}/>
+      <MainPostBlog uploadHandler={uploadHandler} submitHandler={submitHandler} handlerSubmit={handleSubmit}
+      errors={errors} onClickEdit={undefined}/>
     </>
   )
 };
