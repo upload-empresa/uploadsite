@@ -3,7 +3,8 @@ import db from '../../../../../utils/db';
 import { isAdmin, isAuth } from '../../../../../utils/auth';
 import Post from '../../../../../models/Post';
 
-const handler = nc(isAuth, isAdmin);
+const handler = nc();
+handler.use(isAuth, isAdmin);
 
 handler.get(async (req, res) => {
   await db.connect();
@@ -37,7 +38,7 @@ handler.put(async (req, res) => {
 
 handler.delete(async (req, res) => {
   await db.connect();
-  const post = await Post.findById(req.body.id);
+  const post = await Post.findById(req.query.id);
   if (post) {
     await post.remove();
     await db.disconnect();

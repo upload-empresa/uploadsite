@@ -1,8 +1,10 @@
 import nc from 'next-connect';
 import db from '../../../../utils/db';
 import Post from '../../../../models/Post';
+import { isAdmin, isAuth } from '../../../../utils/auth';
 
 const handler = nc();
+handler.use(isAuth, isAdmin);
 
 handler.get(async (req, res) => {
   await db.connect();
@@ -15,7 +17,7 @@ handler.post(async (req, res) => {
   await db.connect();
   const newPost = new Post({
     title: 'Titulo 1',
-    slug: 'titulo1',
+    slug: 'titulo-simples-' + Math.random(),
     category: 'categoria1',
     data: '12/03/2023',
     image: '/image 4.png',

@@ -6,7 +6,6 @@ import { HeadingAdminBlog } from "../Heading"
 
 interface TableBlogProps {
     title: string
-    href: string
     w: any
     onClickCreate: any
     onClickDelete: any
@@ -14,8 +13,7 @@ interface TableBlogProps {
     posts: any
 }
 
-export function TableBlog({ href, w, onClickCreate, onClickDelete, onClickEdit, posts }: TableBlogProps) {
-    console.log(href);
+export function TableBlog({ w, onClickCreate, onClickDelete, onClickEdit, posts }: TableBlogProps) {
     return (
         <TableContainer w={w} py={8} px={6}>
             <Stack>
@@ -23,7 +21,7 @@ export function TableBlog({ href, w, onClickCreate, onClickDelete, onClickEdit, 
                     justify={"space-between"}
                 >
                     <HeadingAdminBlog />
-                    <ButtonAdd text={"Novo Post"} href={href} onClick={onClickCreate} />
+                    <ButtonAdd text={"Novo Post"} onClick={onClickCreate} />
                 </HStack>
                 <Table>
                     <Thead>
@@ -39,11 +37,11 @@ export function TableBlog({ href, w, onClickCreate, onClickDelete, onClickEdit, 
                             <Tr key={post._id}>
                                 <Td color={"#474749"} fontSize={{ '2xl': "20px", xl: "16px", lg: "14px", xxs: "14px" }}>
                                     <ButtonBlog
-                                        post={post._id}
+                                        post={post}
                                         hrefEdit={`/admin/post/${post._id}`}
                                         hrefDelete={' '}
-                                        onClickDelete={() => onClickDelete(post)}
-                                        onClickEdit={onClickEdit}
+                                        onClickDelete={() => onClickDelete()}
+                                        onClickEdit={() => onClickEdit} 
                                         />
                                 </Td>
                                 <Td color={"#474749"} fontSize={{ '2xl': "20px", xl: "16px", lg: "14px", xxs: "14px" }}>{post._id}</Td>
