@@ -6,7 +6,7 @@ import { theme } from '../styles/theme'
 import { Navbar } from '../components/Navbar'
 import { Footer } from '../components/Footer'
 import { SnackbarProvider } from 'notistack'
-import { StoreProvider } from '../utils/Store'
+import { Store, StoreProvider } from '../utils/Store'
 
 
 function MyApp({ Component, pageProps }: AppProps) {

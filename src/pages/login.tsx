@@ -1,6 +1,5 @@
 import { FormLabel, HStack, Input, Stack } from "@chakra-ui/react"
 
-import { CardLogin } from "../components/Card/cardlogin"
 import { FigureImage } from "../components/Figure"
 
 import axios from 'axios'

@@ -8,7 +8,7 @@ const handler = nc();
 
 handler.get(async (req, res) => {
   await db.connect();
-  // await Post.deleteMany();
+  //   await Post.deleteMany();
   //   await User.deleteMany();
   await Post.insertMany(data.posts);
   await User.insertMany(data.users);
