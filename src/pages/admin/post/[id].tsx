@@ -3,9 +3,10 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import React, { useEffect, useContext, useReducer, useState, ChangeEvent } from 'react';
 import { getError } from '../../../utils/error';
-import { Store } from "../../../utils/Store";
+import { Store } from '../../../utils/Store';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
+import { MainPostBlog } from "../../../components/Main";
 
 //@ts-ignore
 function reducer(state, action) {
@@ -37,25 +38,30 @@ function reducer(state, action) {
       return state;
   }
 }
+
 //@ts-ignore
 function PostEdit({ params }) {
+  console.log(params);
   const [value, setValueR] = useState("");
   const getValue = (value: React.SetStateAction<string>) => {
     setValueR(value);
   };
   const postId = params.id;
+  console.log(postId);
   const { state } = useContext(Store);
   const [{ loading, error, loadingUpdate, loadingUpload }, dispatch] =
     useReducer(reducer, {
       loading: true,
       error: '',
     });
+
   const {
     handleSubmit,
     control,
     formState: { errors },
     setValue,
   } = useForm();
+
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
   const { userInfo } = state;
@@ -67,9 +73,8 @@ function PostEdit({ params }) {
       const fetchData = async () => {
         try {
           dispatch({ type: 'FETCH_REQUEST' });
-          const { data } = await axios.get(`/api/admin/posts/${postId}`, {
+          const { data } = await axios.get(`/api/admin/postBlog/${postId}`, {
             headers: { authorization: `Bearer ${userInfo.token}` },
-            //De onde vem esse token ? Dúvida
           });
           dispatch({ type: 'FETCH_SUCCESS' });
           setValue('title', data.title);
@@ -141,7 +146,7 @@ function PostEdit({ params }) {
     try {
       dispatch({ type: 'UPDATE_REQUEST' });
       await axios.put(
-        `/api/admin/posts/${postId}`,
+        `/api/admin/postBlog/${postId}`,
         {
           title,
           slug,
@@ -160,7 +165,7 @@ function PostEdit({ params }) {
       );
       dispatch({ type: 'UPDATE_SUCCESS' });
       enqueueSnackbar('Post editado com sucesso', { variant: 'success' });
-      router.push('/admin/posts');
+      router.push('/admin');
     } catch (err) {
       dispatch({ type: 'UPDATE_FAIL', payload: getError(err) });
       enqueueSnackbar(getError(err), { variant: 'error' });
@@ -168,5 +173,22 @@ function PostEdit({ params }) {
   };
 
   const [isFeatured, setIsFeatured] = useState(false);
+
+
+  return (
+    <>
+      <MainPostBlog uploadHandler={uploadHandler} submitHandler={submitHandler} handlerSubmit={handleSubmit}
+        errors={errors} onClickEdit={undefined} deletehandler={undefined} />
+    </>
+  )
 };
+
+//@ts-ignore
+export async function getServerSideProps({ params }) {
+  return {
+    props: { params },
+  };
+}
+
+export default dynamic(() => Promise.resolve(PostEdit), { ssr: false });
 
