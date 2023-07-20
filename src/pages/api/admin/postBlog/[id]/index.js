@@ -3,7 +3,8 @@ import db from '../../../../../utils/db';
 import { isAdmin, isAuth } from '../../../../../utils/auth';
 import Post from '../../../../../models/Post';
 
-const handler = nc(isAuth, isAdmin);
+const handler = nc();
+handler.use(isAuth, isAdmin);
 
 handler.get(async (req, res) => {
   await db.connect();

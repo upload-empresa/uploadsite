@@ -7,18 +7,6 @@ import { getError } from '../../utils/error';
 import { Store } from '../../u../../utils/Store';
 import { useSnackbar } from 'notistack';
 import { MainBlog } from '../../components/Main';
-import {
-  TableContainer,
-  Table,
-  Thead,
-  Tr,
-  Th,
-  Tbody,
-  Td,
-  Stack,
-  HStack,
-} from '@chakra-ui/react';
-import { ButtonAdd, ButtonBlog } from '../../components/Button';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -90,7 +78,7 @@ function AdminPosts() {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
       const { data } = await axios.post(
-        `/api/admin/postBlog`, // Essa rota leva para a index do postBlog, criando um post genérico.
+        `/api/admin/postBlog`, // Essa rota leva para a index  do postBlog, criando um post genérico.
         {},
         {
           headers: { authorization: `Bearer ${userInfo.token}` },
@@ -106,12 +94,14 @@ function AdminPosts() {
   };
 
   const deleteHandler = async (postId) => {
+    console.log('Vendo o id');
     if (!window.confirm('Tem certeza que deseja deletar? ')) {
       return;
     }
     try {
       dispatch({ type: 'DELETE_REQUEST' });
       console.log('Cheguei até o try');
+      console.log(postId);
       await axios.delete(`/api/admin/postBlog/${postId}`, {
         headers: { authorization: `Bearer ${userInfo.token}` },
       });
@@ -126,13 +116,11 @@ function AdminPosts() {
 
   return (
     <>
-      {posts.map((post) => (
-        <MainBlog
-          posts={posts}
-          onClickCreate={() => createHandler()}
-          deletehandler={() => deleteHandler(post._id)}
-        />
-      ))}
+      <MainBlog
+        posts={posts}
+        onClickCreate={() => createHandler()}
+        onClickDelete={() => deleteHandler(posts)}
+      />
     </>
   );
 }

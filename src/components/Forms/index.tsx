@@ -8,21 +8,32 @@ interface FormsProps {
     w?: string
     mb?: any
     errors?: any
+    controlForm: any
+    nameForm: any
 }
 
-export function Forms({ label, placeholder, type, w, mb, errors }: FormsProps) {
+export function Forms({ nameForm, label, placeholder, type, w, mb, errors, controlForm }: FormsProps) {
     return (
         <FormControl w={w} mb={mb} >
             <FormLabel color={"#828282"} fontSize={{ '2xl': "18px", lg: "14px", md: "14px", xxs: "14px" }}>{label}</FormLabel>
-            {/* <Controller> */}
-                <Input 
-                required={true} 
-                type={type} 
-                placeholder={placeholder} 
-                _placeholder={{ color: "#A1A1A1", fontSize: "14px" }} 
-                />
+            <Controller
+                name={nameForm}
+                control={controlForm}
+                defaultValue=""
+                rules={{
+                    required: true,
+                }}
+                render={({ field }) => (
 
-            {/* </Controller> */}
+                    <Input
+                        required={true}
+                        type={type}
+                        placeholder={placeholder}
+                        _placeholder={{ color: "#A1A1A1", fontSize: "14px" }}
+                        {...field}
+                    />
+                )}
+            ></Controller>
         </FormControl>
     )
 }

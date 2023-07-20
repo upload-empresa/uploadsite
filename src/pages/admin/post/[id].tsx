@@ -41,13 +41,11 @@ function reducer(state, action) {
 
 //@ts-ignore
 function PostEdit({ params }) {
-  console.log(params);
   const [value, setValueR] = useState("");
   const getValue = (value: React.SetStateAction<string>) => {
     setValueR(value);
   };
   const postId = params.id;
-  console.log(postId);
   const { state } = useContext(Store);
   const [{ loading, error, loadingUpdate, loadingUpload }, dispatch] =
     useReducer(reducer, {
@@ -178,7 +176,7 @@ function PostEdit({ params }) {
   return (
     <>
       <MainPostBlog uploadHandler={uploadHandler} submitHandler={submitHandler} handlerSubmit={handleSubmit}
-        errors={errors} onClickEdit={undefined} deletehandler={undefined} />
+        errors={errors} onClickEdit={undefined} control={control} deletehandler={undefined} />
     </>
   )
 };

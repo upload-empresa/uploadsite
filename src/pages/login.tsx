@@ -25,7 +25,7 @@ export default function Login() {
     const { userInfo } = state;
     useEffect(() => {
         if (userInfo) {
-            router.push('/');
+            router.push('/login'); // rota anterior router.push('/') 
         }
     }, []);
 

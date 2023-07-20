@@ -19,6 +19,7 @@ interface MainPostBlogProps {
     onClickEdit: any
     errors?: any
     deletehandler: any
+    control: any
 }
 
 // 
@@ -30,12 +31,12 @@ export function MainBlog({ onClickCreate, onClickDelete, onClickEdit, submitHand
             w="100%"
         >
             <Sidebar w={"15%"} />
-            <TableBlog w={"85%"} title={"Joaquim"} href={`/admin/post/${posts}`} onClickCreate={onClickCreate} onClickDelete={onClickDelete} onClickEdit={onClickEdit} posts={posts} deletehandler={deletehandler} />
+            <TableBlog w={"85%"} title={"Joaquim"} onClickCreate={onClickCreate} onClickDelete={onClickDelete} onClickEdit={onClickEdit} posts={posts} deletehandler={deletehandler} />
         </HStack>
     )
 }
 
-export function MainPostBlog({ uploadHandler, submitHandler, handlerSubmit, errors }: MainPostBlogProps) {
+export function MainPostBlog({ uploadHandler, submitHandler, handlerSubmit, errors, control }: MainPostBlogProps) {
     return (
         <form onSubmit={handlerSubmit(submitHandler)}>
 
@@ -50,16 +51,18 @@ export function MainPostBlog({ uploadHandler, submitHandler, handlerSubmit, erro
                     spacing={5}
                 >
                     <HStack spacing={6} flexDir={"row"}>
-                        <Forms label={"Título"} type={"text"} placeholder={"Digite o título do post"} mb={"0"} errors={Boolean(errors.title)} />
-                        <Forms label={"Data do post"} type={"date"} placeholder={"Digite a data do post"} errors={Boolean(errors.data)} />
+                        <Forms label={"Título"} type={"text"} placeholder={"Digite o título do post"}
+                            mb={"0"} errors={Boolean(errors.title)} controlForm={control} nameForm={"title"} />
+
+                        <Forms label={"Data do post"} type={"date"} placeholder={"Digite a data do post"} errors={Boolean(errors.data)} controlForm={control} nameForm={"data"} />
                     </HStack>
                     <HStack spacing={6} flexDir={"row"}>
-                        <Forms label={"Url do post"} type={"text"} placeholder={"Digite a url do post. Ex: vantagens-de-ter-um-site"} mb={"0"} errors={Boolean(errors.slug)} />
-                        <Forms label={"Imagem principal do post"} type={"text"} placeholder={"Arraste a imagem"} errors={Boolean(errors.image)} />
+                        <Forms label={"Url do post"} type={"text"} placeholder={"Digite a url do post. Ex: vantagens-de-ter-um-site"} mb={"0"} errors={Boolean(errors.slug)} controlForm={control} nameForm={"slug"} />
+                        <Forms label={"Imagem principal do post"} type={"text"} placeholder={"Arraste a imagem"} errors={Boolean(errors.image)} controlForm={control} nameForm={"image"} />
                     </HStack>
                     <HStack spacing={6} flexDir={"row"}>
-                        <Forms label={"Resumo do post"} type={"textarea"} placeholder={"Digite o resumo do post"} mb={"0"} errors={Boolean(errors.resumo)} />
-                        <Forms label={"Corpo de texto do post"} type={"textarea"} placeholder={"Digite o corpo de texto do post"} />
+                        <Forms label={"Resumo do post"} type={"textarea"} placeholder={"Digite o resumo do post"} mb={"0"} errors={Boolean(errors.resumo)} controlForm={control} nameForm={"resumo"} />
+                        <Forms label={"Corpo de texto do post"} type={"textarea"} placeholder={"Digite o corpo de texto do post"} controlForm={control} nameForm={"body"} />
                     </HStack>
                     <ButtonSave align="end" type="submit" />
 

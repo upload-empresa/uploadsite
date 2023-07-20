@@ -6,7 +6,6 @@ import { HeadingAdminBlog } from "../Heading"
 
 interface TableBlogProps {
     title: string
-    href: string
     w: any
     onClickCreate: any
     onClickDelete: any
@@ -15,8 +14,8 @@ interface TableBlogProps {
     deletehandler: any
 }
 
-export function TableBlog({ href, w, onClickCreate, onClickDelete, onClickEdit, posts, deletehandler }: TableBlogProps) {
-    console.log(href);
+export function TableBlog({ w, onClickCreate, onClickDelete, onClickEdit, posts, deletehandler }: TableBlogProps) {
+
     return (
         <TableContainer w={w} py={8} px={6}>
             <Stack>
@@ -24,7 +23,7 @@ export function TableBlog({ href, w, onClickCreate, onClickDelete, onClickEdit, 
                     justify={"space-between"}
                 >
                     <HeadingAdminBlog />
-                    <ButtonAdd text={"Novo Post"} href={href} onClick={onClickCreate} />
+                    <ButtonAdd text={"Novo Post"} onClick={onClickCreate} />
                 </HStack>
                 <Table>
                     <Thead>
@@ -43,8 +42,7 @@ export function TableBlog({ href, w, onClickCreate, onClickDelete, onClickEdit, 
                                         post={post._id}
                                         hrefEdit={`/admin/post/${post._id}`}
                                         onClickDelete={deletehandler}
-                                        onClickEdit={onClickEdit}
-                                    />
+                                        onClickEdit={onClickEdit} />
                                 </Td>
                                 <Td color={"#474749"} fontSize={{ '2xl': "20px", xl: "16px", lg: "14px", xxs: "14px" }}>{post._id}</Td>
                                 <Td textAlign={"start"} color={"#474749"} fontSize={{ '2xl': "20px", xl: "16px", lg: "14px", xxs: "14px" }}>{post.title}</Td>

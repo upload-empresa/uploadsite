@@ -1,5 +1,6 @@
 import { Button, HStack, IconButton, Stack } from "@chakra-ui/react"
 import { MdAdd, MdDelete, MdEdit } from "react-icons/md"
+import Id from "../../pages/admin/post/[id]"
 
 import { Links } from "../Links"
 
@@ -32,7 +33,7 @@ export function ButtonBlog({ post, hrefEdit, onClickDelete, onClickEdit }: Butto
                     size={{ '2xl': "md", lg: 'sm', xxs: "sm" }}
                     fontSize={{ '2xl': "24px", xl: "18px", xxs: "16px" }}
                     icon={<MdEdit />}
-                // onClick={onClickEdit}
+                    onClick={onClickEdit}
                 />
             </Links>
         </HStack>
@@ -41,27 +42,24 @@ export function ButtonBlog({ post, hrefEdit, onClickDelete, onClickEdit }: Butto
 
 interface ButtonAddProps {
     text: string
-    href: string
-    onClick?: any
+    onClick: any
     mt?: any
 }
 
-export function ButtonAdd({ text, href, onClick, mt }: ButtonAddProps) {
+export function ButtonAdd({ text, onClick, mt }: ButtonAddProps) {
     return (
-        <Links href={href} >
-            <Button
-                leftIcon={<MdAdd />}
-                bg={"#0BB7AF"}
-                color={"white"}
-                mt={mt}
-                size={{ '2xl': 'lg', lg: "sm", xxs: "sm" }}
-                fontSize={{ '2xl': "20px" }}
-                onClick={onClick}
-                fontWeight={500}
-            >
-                {text}
-            </Button>
-        </Links>
+        <Button
+            leftIcon={<MdAdd />}
+            bg={"#0BB7AF"}
+            color={"white"}
+            mt={mt}
+            size={{ '2xl': 'lg', lg: "sm", xxs: "sm" }}
+            fontSize={{ '2xl': "20px" }}
+            onClick={onClick}
+            fontWeight={500}
+        >
+            {text}
+        </Button>
     )
 }
 
