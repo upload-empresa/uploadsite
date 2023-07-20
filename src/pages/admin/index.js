@@ -116,11 +116,13 @@ function AdminPosts() {
 
   return (
     <>
-      <MainBlog
-        posts={posts}
-        onClickCreate={() => createHandler()}
-        onClickDelete={() => deleteHandler(posts)}
-      />
+      {posts.map((post) => (
+        <MainBlog
+          posts={posts}
+          onClickCreate={() => createHandler()}
+          deletehandler={() => deleteHandler(post._id)}
+        />
+      ))}
     </>
   );
 }
