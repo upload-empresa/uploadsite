@@ -1,23 +1,12 @@
-import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Stack, HStack } from "@chakra-ui/react"
-import { PostAddSharp } from "@material-ui/icons"
-
-import { ButtonAdd, ButtonBlog } from "../Button"
-import { HeadingAdminBlog } from "../Heading"
-
+import { Tr, Tbody, Td, } from "@chakra-ui/react"
+import { ButtonBlog } from "../Button"
 
 interface TableBlogProps {
-    title: string
-    w: any
-    onClickCreate: any
-    onClickDelete: any
-    onClickEdit: any
-    posts: any
-    deletehandler: any
     data: any
     funcaodelete: any
 }
 
-export function TableBlog({ w, onClickCreate, onClickDelete, onClickEdit, posts, deletehandler, data, funcaodelete }: TableBlogProps) {
+export function TableBlog({ data, funcaodelete }: TableBlogProps) {
 
     return (
         <Tbody>

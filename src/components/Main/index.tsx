@@ -5,25 +5,17 @@ import { TableBlog } from "../Table"
 import { Forms } from "../Forms"
 import { ButtonSave } from "../Button"
 
-interface MainBlogProps {
-    href: any
-    onClickCreate: any
-    onClickDelete: any
-    posts: any
-}
 
 interface MainPostBlogProps {
     uploadHandler: any
     submitHandler: any
     handlerSubmit: any
-    onClickEdit: any
     errors?: any
-    deletehandler: any
     control: any
 }
 
 // 
-export function MainBlog({ onClickCreate, onClickDelete, onClickEdit, submitHandler, posts, deletehandler }: MainBlogProps & MainPostBlogProps) {
+export function MainBlog() {
 
     return (
         <HStack
@@ -31,7 +23,6 @@ export function MainBlog({ onClickCreate, onClickDelete, onClickEdit, submitHand
             w="100%"
         >
             <Sidebar w={"15%"} />
-            {/* <TableBlog w={"85%"} title={"Joaquim"} onClickCreate={onClickCreate} onClickDelete={onClickDelete} onClickEdit={onClickEdit} posts={posts} deletehandler={deletehandler} /> */}
         </HStack>
     )
 }

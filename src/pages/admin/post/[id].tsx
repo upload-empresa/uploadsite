@@ -86,7 +86,6 @@ function PostEdit({ params }) {
           setValue('data', data.data);
           setValue('perfil', data.perfil);
           setValue('body', data.body);
-          //setValue('description', data.description);
         } catch (err) {
           dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
         }
@@ -157,7 +156,6 @@ function PostEdit({ params }) {
           featuredImage,
           perfil,
           body,
-          //description,
         },
         { headers: { authorization: `Bearer ${userInfo.token}` } }
       );
@@ -176,7 +174,7 @@ function PostEdit({ params }) {
   return (
     <>
       <MainPostBlog uploadHandler={uploadHandler} submitHandler={submitHandler} handlerSubmit={handleSubmit}
-        errors={errors} onClickEdit={undefined} control={control} deletehandler={undefined} />
+        errors={errors} control={control}/>
     </>
   )
 };
