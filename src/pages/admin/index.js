@@ -7,6 +7,21 @@ import { getError } from '../../utils/error';
 import { Store } from '../../u../../utils/Store';
 import { useSnackbar } from 'notistack';
 import { MainBlog } from '../../components/Main';
+import { ButtonAdd, ButtonBlog } from '../../components/Button';
+import {
+  TableContainer,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Tbody,
+  Td,
+  Stack,
+  HStack,
+} from '@chakra-ui/react';
+import { HeadingAdminBlog } from '../../components/Heading';
+import { Sidebar } from '../../components/Sidebar';
+import { TableBlog } from '../../components/Table';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -116,16 +131,81 @@ function AdminPosts() {
 
   return (
     <>
-      {posts.map((post) => (
-        <MainBlog
-          posts={posts}
-          onClickCreate={() => createHandler()}
-          deletehandler={() => deleteHandler(post._id)}
-        />
-      ))}
+      <HStack align={'stretch'} w="100%">
+        <Sidebar w={'15%'} />
+
+        <TableContainer w={'85%'} py={8} px={6}>
+          <Stack>
+            <HStack justify={'space-between'}>
+              <HeadingAdminBlog />
+              <ButtonAdd text={'Novo Post'} onClick={() => createHandler()} />
+            </HStack>
+            <Table>
+              <Thead>
+                <Tr>
+                  <Th
+                    color={'#B5B7C0'}
+                    fontSize={{
+                      '2xl': '18px',
+                      xl: '16px',
+                      lg: '14px',
+                      xxs: '14px',
+                    }}
+                    fontWeight={500}
+                  >
+                    Ações
+                  </Th>
+                  <Th
+                    color={'#B5B7C0'}
+                    fontSize={{
+                      '2xl': '18px',
+                      xl: '16px',
+                      lg: '14px',
+                      xxs: '14px',
+                    }}
+                    fontWeight={500}
+                  >
+                    ID
+                  </Th>
+                  <Th
+                    textAlign={'start'}
+                    color={'#B5B7C0'}
+                    fontSize={{
+                      '2xl': '18px',
+                      xl: '16px',
+                      lg: '14px',
+                      xxs: '14px',
+                    }}
+                    fontWeight={500}
+                  >
+                    Título
+                  </Th>
+                  <Th
+                    color={'#B5B7C0'}
+                    fontSize={{
+                      '2xl': '18px',
+                      xl: '16px',
+                      lg: '14px',
+                      xxs: '14px',
+                    }}
+                    fontWeight={500}
+                  >
+                    Data
+                  </Th>
+                </Tr>
+              </Thead>
+              {posts.map((post) => (
+                <TableBlog
+                  data={post}
+                  funcaodelete={() => deleteHandler(post._id)}
+                />
+              ))}
+            </Table>
+          </Stack>
+        </TableContainer>
+      </HStack>
     </>
   );
 }
-//
 
 export default dynamic(() => Promise.resolve(AdminPosts), { ssr: false });

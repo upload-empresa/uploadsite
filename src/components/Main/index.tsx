@@ -31,7 +31,7 @@ export function MainBlog({ onClickCreate, onClickDelete, onClickEdit, submitHand
             w="100%"
         >
             <Sidebar w={"15%"} />
-            <TableBlog w={"85%"} title={"Joaquim"} onClickCreate={onClickCreate} onClickDelete={onClickDelete} onClickEdit={onClickEdit} posts={posts} deletehandler={deletehandler} />
+            {/* <TableBlog w={"85%"} title={"Joaquim"} onClickCreate={onClickCreate} onClickDelete={onClickDelete} onClickEdit={onClickEdit} posts={posts} deletehandler={deletehandler} /> */}
         </HStack>
     )
 }
