@@ -22,14 +22,14 @@ const isAuth = async (req, res, next) => {
     const token = authorization.slice(7, authorization.length);
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
-        res.status(401).send({ message: 'Token is not valid' });
+        res.status(401).send({ message: 'O token não é válido' });
       } else {
         req.user = decode;
         next();
       }
     });
   } else {
-    res.status(401).send({ message: 'Token is not suppiled' });
+    res.status(401).send({ message: 'Token não é fornecido' });
   }
 };
 
@@ -37,7 +37,7 @@ const isAdmin = async (req, res, next) => {
   if (req.user.isAdmin) {
     next();
   } else {
-    res.status(401).send({ message: 'User is not admin' });
+    res.status(401).send({ message: 'O usuário não é administrador' });
   }
 };
 

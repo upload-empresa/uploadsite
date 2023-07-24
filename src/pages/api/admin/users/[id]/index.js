@@ -21,10 +21,10 @@ handler.put(async (req, res) => {
     user.isAdmin = Boolean(req.body.isAdmin);
     await user.save();
     await db.disconnect();
-    res.send({ message: 'User Updated Successfully' });
+    res.send({ message: 'Usuário editado com sucesso!' });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'User Not Found' });
+    res.status(404).send({ message: 'Usuário não encontrado!' });
   }
 });
 
@@ -34,10 +34,10 @@ handler.delete(async (req, res) => {
   if (user) {
     await user.remove();
     await db.disconnect();
-    res.send({ message: 'User Deleted' });
+    res.send({ message: 'Usuário deletado' });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'User Not Found' });
+    res.status(404).send({ message: 'Usuário não encontrado!' });
   }
 });
 

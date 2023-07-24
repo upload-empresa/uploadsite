@@ -1,21 +1,17 @@
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import NextLink from "next/link";
 import React, { useEffect, useContext, useReducer } from "react";
 import { getError } from "../../utils/error";
 import { Store } from "../../u../../utils/Store";
 import { useSnackbar } from "notistack";
-import { MainBlog } from "../../components/Main";
-import { ButtonAdd, ButtonBlog } from "../../components/Button";
+import { ButtonAdd } from "../../components/Button";
 import {
   TableContainer,
   Table,
   Thead,
   Tr,
   Th,
-  Tbody,
-  Td,
   Stack,
   HStack,
 } from "@chakra-ui/react";
@@ -30,7 +26,7 @@ function reducer(state, action) {
     case "FETCH_SUCCESS":
       return { ...state, loading: false, posts: action.payload, error: "" };
     case "FETCH_FAIL":
-      return { ...state, loading: false, error: action.payload }; //undefined
+      return { ...state, loading: false, error: action.payload };
     case "CREATE_REQUEST":
       return { ...state, loadingCreate: true };
     case "CREATE_SUCCESS":

@@ -33,17 +33,4 @@ handler.post(async (req, res) => {
   res.send({ message: 'Post Criado', post });
 });
 
-// handler.delete(async(req, res) => {
-//     await db.connect();
-//     const postDelete = await Post.findById(req.body.id);
-//     if(postDelete){
-//         await postDelete.remove();
-//         await db.disconnect();
-//         res.send({ message: "Post Deletado" });
-//     } else {
-//         await db.disconnect();
-//         res.status(400).send({ message: "Post Não Encontrado" })
-//     }
-// });
-
 export default handler;

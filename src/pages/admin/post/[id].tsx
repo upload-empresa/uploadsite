@@ -47,7 +47,7 @@ function PostEdit({ params }) {
   };
   const postId = params.id;
   const { state } = useContext(Store);
-  const [{ loading, error, loadingUpdate, loadingUpload }, dispatch] =
+  const [{loading}, dispatch] =
     useReducer(reducer, {
       loading: true,
       error: '',

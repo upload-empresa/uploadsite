@@ -45,7 +45,7 @@ handler.delete(async (req, res) => {
     res.send({ message: 'Post Deletado' });
   } else {
     await db.disconnect();
-    res.status(404).send({ message: 'Post Não Encontrado' });
+    res.status(404).send({ message: 'Post não encontrado' });
   }
 });
 
