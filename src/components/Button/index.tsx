@@ -1,6 +1,5 @@
 import { Button, HStack, IconButton, Stack } from "@chakra-ui/react"
 import { MdAdd, MdDelete, MdEdit } from "react-icons/md"
-import Id from "../../pages/admin/post/[id]"
 
 import { Links } from "../Links"
 

@@ -1,7 +1,5 @@
 import { FormLabel, HStack, Input, Stack } from "@chakra-ui/react"
 
-import { FigureImage } from "../components/Figure"
-
 import axios from 'axios'
 import { useRouter } from "next/router"
 import React, { useContext, useEffect } from 'react';
@@ -25,7 +23,8 @@ export default function Login() {
     const { userInfo } = state;
     useEffect(() => {
         if (userInfo) {
-            router.push('/login'); // rota anterior router.push('/') 
+            enqueueSnackbar("O usuário já está logado!", { variant: 'success' } );
+            router.push('/');
         }
     }, []);
 
@@ -113,6 +112,7 @@ export default function Login() {
                             id="password"
                             //@ts-ignore
                             inputProps={{ type: 'password' }}
+                            type="password"
                             error={Boolean(errors.password)}
                             helperText={errors.password
                                 ? errors.password.type === 'minLength'

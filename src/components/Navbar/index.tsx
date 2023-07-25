@@ -1,7 +1,11 @@
 /* eslint-disable */
 import { Flex, HStack, IconButton, Stack } from '@chakra-ui/react'
-import { useState } from 'react'
+import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
+import { useContext, useState } from 'react'
 import { MdOutlineClose } from 'react-icons/md'
+import { Store } from '../../utils/Store'
+import { useSnackbar } from "notistack";
 
 import { FigureImage } from '../Figure'
 import { DrawerUp } from './drawer'
@@ -10,7 +14,23 @@ import { Navigation } from './navigation'
 
 export function Navbar() {
 
-    const [display, changeDisplay] = useState('none')
+    const router = useRouter()
+    const [display, changeDisplay] = useState('none');
+    const { state, dispatch } = useContext(Store);
+    const { userInfo } = state;
+
+    const { enqueueSnackbar } = useSnackbar();
+
+    const logoutClickHandler = () => {
+        if (!window.confirm("Tem certeza que deseja sair?")) {
+            return;
+        }
+        enqueueSnackbar("Usuário deslogado com sucesso!", { variant: "success" });
+        dispatch({ type: 'USER_LOGOUT' })
+        Cookies.remove('userInfo')
+        router.push('/')
+    };
+
     return (
         <HStack
             as="header"
@@ -39,6 +59,22 @@ export function Navbar() {
                 <Navigation name="Contato" link='/#contato' />
 
                 <Navigation name="Blog" link='/blog' />
+
+                {userInfo ? (
+                    <>
+                        {userInfo.isAdmin && (
+                            <>
+                            
+                                <Navigation name="Área Adm" link="/admin" />
+                                <Navigation name="Logout" link='' onClick={logoutClickHandler} />
+                            </>
+                        )}
+                    </>
+                ) : (
+                    <>
+                        <Navigation name="Login" link='/login'/>
+                    </>
+                )}
 
             </HStack>
             <DrawerUp />

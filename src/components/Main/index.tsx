@@ -1,7 +1,6 @@
-import { HStack, Stack } from "@chakra-ui/react"
+import { CircularProgress, FormControl, HStack, Stack } from "@chakra-ui/react"
 
 import { Sidebar } from "../Sidebar"
-import { TableBlog } from "../Table"
 import { Forms } from "../Forms"
 import { ButtonSave } from "../Button"
 
@@ -49,7 +48,10 @@ export function MainPostBlog({ uploadHandler, submitHandler, handlerSubmit, erro
                     </HStack>
                     <HStack spacing={6} flexDir={"row"}>
                         <Forms label={"Url do post"} type={"text"} placeholder={"Digite a url do post. Ex: vantagens-de-ter-um-site"} mb={"0"} errors={Boolean(errors.slug)} controlForm={control} nameForm={"slug"} />
-                        <Forms label={"Imagem principal do post"} type={"text"} placeholder={"Arraste a imagem"} errors={Boolean(errors.image)} controlForm={control} nameForm={"image"} />
+                        <Forms label={"Imagem principal do post"} type={"image"} placeholder={"Arraste a imagem"} errors={Boolean(errors.image)} controlForm={control} nameForm={"image"} />
+                        <FormControl>
+                            <input type="file" onChange={uploadHandler} />
+                        </FormControl>
                     </HStack>
                     <HStack spacing={6} flexDir={"row"}>
                         <Forms label={"Resumo do post"} type={"textarea"} placeholder={"Digite o resumo do post"} mb={"0"} errors={Boolean(errors.resumo)} controlForm={control} nameForm={"resumo"} />
