@@ -40,6 +40,8 @@ export function Navbar() {
 
                 <Navigation name="Blog" link='/blog' />
 
+                <Navigation name="Login" link='/login' />
+
             </HStack>
             <DrawerUp />
             <Flex as="section" display={{ base: 'none', lg: "flex", xl: "flex" }} />

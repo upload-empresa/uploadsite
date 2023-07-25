@@ -2,6 +2,7 @@
 import { Flex, Link, Stack, Text } from "@chakra-ui/react"
 import Image from "next/image"
 import NextLink from 'next/link'
+import { FormsLogin } from "../Foms"
 
 interface CardsProps {
     urlimage: string
@@ -66,7 +67,22 @@ export function Cards({ urlimage, description, title, tamw, text, tamh, tam }: C
             </NextLink>
         </Flex>
     )
+}
 
-
-
+export function CardLogin() {
+    return (
+        <Stack
+            boxShadow='15px 15px 20px rgba(0, 0, 0, 0.1)'
+            my={"10%"}
+            w={{md:"400px", nvl:"300px", min:"250px"}}
+        >
+            <Stack
+                bg="#2FACFA"
+                width='100%'
+                height={{md:'80px', nvl:"60px", min:"40px"}}
+                borderRadius="8px 8px 0px 0px"
+            />
+            <FormsLogin />
+        </Stack>
+    )
 }
