@@ -4,9 +4,10 @@ import NextLink from 'next/link'
 interface NavigationProps {
     link: string
     name: string
+    onClick?: any
 }
 
-export function Navigation({ link, name }: NavigationProps) {
+export function Navigation({ link, name, onClick }: NavigationProps) {
     return (
         <Text
             as="ul"
@@ -25,6 +26,7 @@ export function Navigation({ link, name }: NavigationProps) {
                 <NextLink href={link} passHref>
                     <Link
                         as="a"
+                        onClick={onClick}
                         _hover={{
                             textDecoration: "none",
                         }}
