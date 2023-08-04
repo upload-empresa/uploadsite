@@ -69,7 +69,14 @@ export function Cards({ urlimage, description, title, tamw, text, tamh, tam }: C
     )
 }
 
-export function CardLogin() {
+interface CardLoginProps {
+    submitHandler: any
+    handleSubmit: any
+    control: any
+    errors: any
+}
+
+export function CardLogin({ submitHandler, control, handleSubmit, errors }:CardLoginProps) {
     return (
         <Stack
             boxShadow='15px 15px 20px rgba(0, 0, 0, 0.1)'
@@ -82,7 +89,7 @@ export function CardLogin() {
                 height={{md:'80px', nvl:"60px", min:"40px"}}
                 borderRadius="8px 8px 0px 0px"
             />
-            <FormsLogin />
+            <FormsLogin submitHandler={submitHandler} control={control} handleSubmit={handleSubmit} errors={errors} />
         </Stack>
     )
 }

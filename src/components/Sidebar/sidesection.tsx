@@ -6,10 +6,11 @@ interface SideSectionProps {
     text: string
     href: string
     icone: any
+    onClick?: any
 }
 
 
-export function SideSection({ text, href, icone }: SideSectionProps) {
+export function SideSection({ text, href, icone, onClick}: SideSectionProps) {
     return (
         <Links href={href}>
             <HStack
@@ -21,6 +22,7 @@ export function SideSection({ text, href, icone }: SideSectionProps) {
                 _hover={{
                     bg:"#19749A"
                 }}
+                onClick={onClick}
             >
                 <IconButton
                     icon={<Icon justify="end" as={icone} />}

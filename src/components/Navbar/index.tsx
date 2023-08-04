@@ -66,7 +66,7 @@ export function Navbar() {
                             <>
 
                                 <Navigation name="Área Adm" link="/admin" />
-                                <Navigation name="Logout" link='' onClick={logoutClickHandler} />
+                                {/* <Navigation name="Logout" link='' onClick={logoutClickHandler} /> */}
                             </>
                         )}
                     </>
