@@ -3,6 +3,7 @@ import { CircularProgress, FormControl, HStack, Stack } from "@chakra-ui/react"
 import { Sidebar } from "../Sidebar"
 import { Forms } from "../Forms"
 import { ButtonSave } from "../Button"
+import { FormsEdit } from "../Foms/FormsAdm/formEdit"
 
 
 interface MainPostBlogProps {
@@ -55,7 +56,10 @@ export function MainPostBlog({ uploadHandler, submitHandler, handlerSubmit, erro
                     </HStack>
                     <HStack spacing={6} flexDir={"row"}>
                         <Forms label={"Resumo do post"} type={"textarea"} placeholder={"Digite o resumo do post"} mb={"0"} errors={Boolean(errors.resumo)} controlForm={control} nameForm={"resumo"} />
-                        <Forms label={"Corpo de texto do post"} type={"textarea"} placeholder={"Digite o corpo de texto do post"} controlForm={control} nameForm={"body"} />
+                        {/* <Forms label={"Corpo de texto do post"} type={"textarea"} placeholder={"Digite o corpo de texto do post"} controlForm={control} nameForm={"body"} /> */}
+                    </HStack>
+                    <HStack spacing={9} flexDir={"row"}>
+                        <FormsEdit controlForm={control} />
                     </HStack>
                     <ButtonSave align="end" type="submit" />
 
